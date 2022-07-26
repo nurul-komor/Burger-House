@@ -1,3 +1,6 @@
+<?php 
+    include('card.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +11,10 @@
     <title>Document</title>
     <!-- font awesome css -->
     <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- card css -->
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <link rel="stylesheet" href="assets/card/css/style.css">
+    <link rel="stylesheet" href="assets/card/css/style.scss">
     <!-- bootstrap 4.6 css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -17,6 +24,7 @@
 
     <!-- mobile menu plugin css -->
     <link rel="stylesheet" href="assets/css/grt-responsive-menu.css">
+
     <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- respsive css -->
@@ -52,17 +60,17 @@
                 <p>Express Delivery +1 234 567 890</p>
             </div>
             <ul class="menu-links grt-menu">
-                <li><a class="active" href="">Home</a></li>
-                <li><a href="">Menu</a></li>
-                <li><a href="">Our story</a></li>
-                <li><a href="">Contact us</a></li>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#story">Our story</a></li>
+                <li><a href="#contact">Contact us</a></li>
             </ul>
         </nav>
     </div>
 
     <!-- nav bar end -->
     <!-- header start -->
-    <div class="header container-fluid">
+    <div class="header container-fluid" id="home">
         <div class="row">
             <div class="col-md-6 header-left">
                 <h6>It is good time for the great taste of burger</h6>
@@ -76,7 +84,7 @@
     </div>
     <!-- header end -->
     <!-- Burger image start-->
-    <div class="burger-image container">
+    <div class="burger-image container" id="menu">
         <div class="row">
             <div class="col-md-6">
                 <div class="burger-image-left">
@@ -124,13 +132,8 @@
                     <div class="order-image one"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <div class="add-chart-num one">
-                        <button id="chart-plus-one" class="btn btn-primary add-to-chart sign">+</button>
-                        <input type="text" name="" id="add-input-one" class="form-control add-chart-input"
-                            placeholder="0">
-                        <button id="chart-minus-one" class="btn btn-primary add-to-chart sign">-</button>
-                    </div>
-                    <button id="order-now-btn one" type="button" class="btn">Add to Chart</button>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to Cart</button>
                 </div>
             </div>
             <div class="col-lg-4 p-0">
@@ -138,13 +141,9 @@
                     <div class="order-image two"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <div class="add-chart-num two">
-                        <button id="chart-plus-two" class="btn btn-primary add-to-chart sign">+</button>
-                        <input type="text" name="" id="add-input-two" class="form-control add-chart-input"
-                            placeholder="0">
-                        <button id="chart-minus-two" class="btn btn-primary add-to-chart sign">-</button>
-                    </div>
-                    <button id="order-now-btn two" type="button" class="btn">Add to Chart</button>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to
+                        Chart</button>
                 </div>
             </div>
             <div class="col-lg-4 p-0">
@@ -152,13 +151,67 @@
                     <div class="order-image three"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <div class="add-chart-num two">
-                        <button id="chart-plus-three" class="btn btn-primary add-to-chart sign">+</button>
-                        <input type="text" name="" id="add-input-three" class="form-control add-chart-input"
-                            placeholder="0">
-                        <button id="chart-minus-three" class="btn btn-primary add-to-chart sign">-</button>
-                    </div>
-                    <button id="order-now-btn-three" type="button" class="btn">Add to Chart</button>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to
+                        Chart</button>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="order-section">
+                    <div class="order-image one"></div>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="order-section">
+                    <div class="order-image two"></div>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to
+                        Chart</button>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="order-section">
+                    <div class="order-image three"></div>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to
+                        Chart</button>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="order-section">
+                    <div class="order-image one"></div>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="order-section">
+                    <div class="order-image two"></div>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to
+                        Chart</button>
+                </div>
+            </div>
+            <div class="col-lg-4 p-0">
+                <div class="order-section">
+                    <div class="order-image three"></div>
+                    <h3>Lorem ipsum dolor</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
+                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                        class="btn">Add to
+                        Chart</button>
                 </div>
             </div>
         </div>
@@ -166,7 +219,7 @@
 
     <!-- order end-->
     <!-- event start -->
-    <div class="event container">
+    <div class="event container" id="story">
         <div class="owl-carousel">
             <div class="event-section">
                 <div class="row">
@@ -256,7 +309,7 @@
     </div>
     <!-- event end -->
     <!-- reservation start -->
-    <div class="reservation container-fluid">
+    <div class="reservation container-fluid" id="contact">
         <div class="center container-xl">
             <h4>Reservation</h4>
             <h2>Book your table</h2>
@@ -289,7 +342,7 @@
         <div class="row ">
             <div class="col-md-7 footer-left">
                 <div class="logo">
-                    <img src="/assets/images/footer-logo.png" alt="">
+                    <img src="assets/images/footer-logo.png" alt="">
                     <h4>Burger House</h4>
                 </div>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos neque ipsam consequatur! Fuga
@@ -328,6 +381,9 @@
     <script src="assets/plugin/owl.carousel.min.js"></script>
     <!-- bootstrap js -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- card js  -->
+    <script src="assets/card/js/util.js"></script>
+    <script src="assets/card/js/main.js"></script>
     <!-- main js -->
     <script src="assets/js/main.js"></script>
 </body>

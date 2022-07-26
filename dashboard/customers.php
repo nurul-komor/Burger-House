@@ -1,10 +1,3 @@
-<?php 
-/* session_start();
-if(!$_SESSION['username']){
-header('location:login');
-exit;
-} */
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +10,7 @@ exit;
     <title>Dashboard - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
-
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -47,7 +40,7 @@ exit;
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="login">Logout</a></li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -58,12 +51,12 @@ exit;
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link active" href="index">
+                        <a class="nav-link" href="index">
                             <div class="sb-nav-link-icon"><i class="fa fa-cutlery" aria-hidden="true"></i>
                             </div>
                             All Foods
                         </a>
-                        <a class="nav-link" href="customers">
+                        <a class="nav-link active" href="customers">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i>
                             </div>
                             Customers
@@ -126,61 +119,17 @@ exit;
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main class="p-4">
-                <h3 class="card-title">Add Food</h3>
-                <br>
-                <div class="col-md-10 p-4 mx-md-2"
+            <main class="m-md-4">
+                <h3 class="text-center">Our Customers</h3>
+                <div class="col-md-11 p-4 mx-md-2"
                     style="border-radius: 25px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px">
-                    <form enctype="multipart/form-data" id="add-food-form" class="row" method="post" action="ajax.php">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="food-name" class="form-label">Food Name</label>
-                                <input type="text" class="form-control" name="foodName" id="food-name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="food-title" class="form-label">Title</label>
-                                <input type="text" class="form-control" name="foodTitle" id="food-title">
-                            </div>
-                            <div class="mb-3">
-                                <label for="food-itmes" class="form-label">Items</label>
-                                <input type="text" class="form-control" name="foodItems" id="food-itmes">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="food-price-old" class="form-label">Old Price</label>
-                                <input type="text" class="form-control" name="foodPriceOld" id="food-price-old">
-                            </div>
-                            <div class="mb-3">
-                                <label for="food-price-new" class="form-label">Offer Price</label>
-                                <input type="text" class="form-control" name="foodPriceNew" id="food-price-new">
-                            </div>
-                            <div class="mb-3">
-                                <label for="food-price" class="form-label">Add Image</label>
-                                <input type="file" class="form-control" name="foodImage" id="food-price">
-                            </div>
-                        </div>
-                        <input type="hidden" name="action" id="" value="addFood">
-                        <div class="col-md-6">
-                            <button type="submit" class="col-md-4 btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
-                <br>
-                <br>
-                <h3 class="card-title">All Foods</h3>
-                <div class="col-md-12 p-4 mx-md-2"
-                    style="border-radius: 25px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px">
-                    <table class="table" id="foodsTable" style="text-align: center;">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Food Name</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Offer Price</th>
-                                <th scope="col">Normal Price</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Gender</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -188,9 +137,6 @@ exit;
                                 <th scope="row">1</th>
                                 <td>Mark</td>
                                 <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
                                 <td>@mdo</td>
                             </tr>
                         </tbody>
@@ -213,21 +159,12 @@ exit;
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
-    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script> -->
-    <!-- <script src="assets/demo/chart-area-demo.js"></script> -->
-    <!-- <script src="assets/demo/chart-bar-demo.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
-
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="./js/ajax.js"></script>
 </body>
 
 </html>
