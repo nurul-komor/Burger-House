@@ -1,6 +1,12 @@
 <?php 
-    include('card.php');
+    session_start();
+    // echo "<pre>";
+    // print_r($_SESSION);
+    // echo "</pre>";
+    
 ?>
+<script>
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +18,9 @@
     <!-- font awesome css -->
     <link rel="stylesheet" href="assets/css/all.min.css">
     <!-- card css -->
-    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+    <script>
+    document.getElementsByTagName("html")[0].className += " js";
+    </script>
     <link rel="stylesheet" href="assets/card/css/style.css">
     <link rel="stylesheet" href="assets/card/css/style.scss">
     <!-- bootstrap 4.6 css -->
@@ -32,6 +40,9 @@
 </head>
 
 <body>
+    <?php 
+        include('card.php');
+    ?>
     <div class="delivery-phone">
         <i class="fa-solid fa-phone remove-phone"></i>
         <i class="fa-solid fa-xmark add-phone"></i>
@@ -43,7 +54,7 @@
     <!-- preloader End-->
     <!-- nav bar start -->
     <!-- nav bar start -->
-    <div class="navigation-bar ">
+    <div class="navigation-bar " style="display:none">
         <div class="logo  pl-lg-5 pl-sm-4">
             <a href=""><img src="assets/images/logo.png" alt="logo">
                 <h3>Burger House</h3>
@@ -126,13 +137,13 @@
                 consequuntur nihil et qui<br> tempore ex laudantium harum ratione molestias ab, deserunt quod
                 necessitatibus. Saepe, nam!</p>
         </div>
-        <div class="row lg-container-fluid">
+        <div class="row lg-container-fluid" id="all-foods">
             <div class="col-lg-4 p-0">
                 <div class="order-section">
                     <div class="order-image one"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to Cart</button>
                 </div>
             </div>
@@ -141,7 +152,7 @@
                     <div class="order-image two"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to
                         Chart</button>
                 </div>
@@ -151,7 +162,7 @@
                     <div class="order-image three"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to
                         Chart</button>
                 </div>
@@ -161,7 +172,7 @@
                     <div class="order-image one"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to Cart</button>
                 </div>
             </div>
@@ -170,7 +181,7 @@
                     <div class="order-image two"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to
                         Chart</button>
                 </div>
@@ -180,7 +191,7 @@
                     <div class="order-image three"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to
                         Chart</button>
                 </div>
@@ -190,7 +201,7 @@
                     <div class="order-image one"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to Cart</button>
                 </div>
             </div>
@@ -199,7 +210,7 @@
                     <div class="order-image two"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to
                         Chart</button>
                 </div>
@@ -209,7 +220,7 @@
                     <div class="order-image three"></div>
                     <h3>Lorem ipsum dolor</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, eligendi.</p>
-                    <button data-price="25.99" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
+                    <button data-price="55.55" class=" js-cd-add-to-cart" id="order-now-btn one" type="button"
                         class="btn">Add to
                         Chart</button>
                 </div>
@@ -381,11 +392,16 @@
     <script src="assets/plugin/owl.carousel.min.js"></script>
     <!-- bootstrap js -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- ajax js  -->
     <!-- card js  -->
-    <script src="assets/card/js/util.js"></script>
-    <script src="assets/card/js/main.js"></script>
+    <script src="assets/js/ajax.js"></script>
+    <!-- <script src="assets/card/js/util.js"></script> -->
+    <!-- <script src="assets/card/js/main.js"></script> -->
+
     <!-- main js -->
     <script src="assets/js/main.js"></script>
+    <script id="javaScript">
+    </script>
 </body>
 
 </html>

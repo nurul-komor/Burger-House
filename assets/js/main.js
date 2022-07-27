@@ -45,4 +45,5 @@ delivery.onclick = () => {
 $(window).on("load", function () {
     $(".preloader").fadeOut();
     $(".preloader").delay(5000).fadeOut("slow");
+
 });
