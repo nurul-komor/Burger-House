@@ -44,21 +44,7 @@
             move_uploaded_file($data["tmp_name"],$dir.$fileName);
             return $fileName;
         }
-        public function createTable($table){
-            $sql = "CREATE TABLE $table (
-                    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    bookName VARCHAR(100) NOT NULL,
-                    book_img VARCHAR(100) NOT NULL,
-                    book_url VARCHAR(100) NOT NULL,
-                    book_file VARCHAR(100) NOT NULL,
-                    description TEXT(1000) NOT NULL,
-                    topic_id VARCHAR(11) NOT NULL
-                )";
-                // echo $sql;die;
-            $result = mysqli_query($this->conn,$sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
-            
-            
-        }
+
         public function createFile($folderName,$fileName,$baseFile){
             if(!file_exists('../categories/'.$folderName)){
                 mkdir("../categories/".$folderName);

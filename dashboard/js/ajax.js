@@ -6,13 +6,13 @@ $(document).ready(function () {
                         <td>${row.food_name}</td>
                         <td style="max-width:120px">${row.food_title}</td>
                         <td scope="row"><img src="./uploads/${row.food_image}" width="130px" height="100px"></td>
+                        <td>${row.items - row.sold_out}</td>
                         <td>${row.new_price}</td>
                         <td>${row.old_price}</td>
-                        <td><button type="submit" class="me-3 editTopic btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-topic" data-topic="${row.topic}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
-
-                        <button type="submit"  class="me-3 deleteTopic btn btn-danger sweet-message" title=" Delete" data-img="${row.topic_img}" data-folder="${row.folder_name}"  data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fa fa-trash" aria-hidden="true"></i></button>
-                        </td>
-                    </tr>`;
+                        <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-topic="${row.topic}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
+                        <button type="submit"  class="me-3 deleteFood btn btn-danger sweet-message" title=" Delete" data-img="${row.topic_img}" data-folder="${row.folder_name}"  data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fa fa-trash" aria-hidden="true"></i></button>
+                        </td>          
+                        </tr>`;
         return singleData;
     }
     function getAllFood() {
@@ -65,16 +65,11 @@ $(document).ready(function () {
     });
 
     // edit modal call
-    $(document).on('click', '.editTopic', function (e) {
+    $(document).on('click', '.editFood', function (e) {
         e.preventDefault()
         var uid = $(this).data('id');
-        var modal = $('#edit-topic');
-        var uid = $(this).data('id');
+        var modal = $('#edit-food');
         modal.find('#edit_id').val(uid);
-        var topic = $(this).data('topic');
-        modal.find('#topic').val(topic);
-        var action = "editTopic";
-        modal.find('#action').val(action);
     })
     // edit topics 
     $(document).on('submit', '#edit-topic-form', function (e) {

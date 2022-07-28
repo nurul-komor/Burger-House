@@ -1,10 +1,5 @@
-<?php 
-    if(isset($_GET['cd-remove-all'])){
-        echo "OK";
-    }
-?>
 <div class="cd-cart cd-cart--empty js-cd-cart">
-    <a href="#0" class="cd-cart__trigger text-replace">
+    <a href="" class="cd-cart__trigger text-replace">
 
         <ul class="cd-cart__count">
             <!-- cart items count -->
@@ -21,14 +16,14 @@
             </header>
 
             <div class="cd-cart__body">
-                <ul>
+                <ul id="full-chart">
                     <!-- products added to the cart will be inserted here using JavaScript -->
                 </ul>
             </div>
 
             <footer class="cd-cart__footer">
-                <a href="#0" class="cd-cart__checkout">
-                    <em>Checkout - $<span>0</span>
+                <a href="" class="cd-cart__checkout">
+                    <em>Checkout - $<span id="total-price">0</span>
                         <svg class="icon icon--sm" viewBox="0 0 24 24">
                             <g fill="none" stroke="currentColor">
                                 <line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12"

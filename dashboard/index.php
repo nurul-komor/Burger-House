@@ -168,6 +168,7 @@ exit;
                 </div>
                 <br>
                 <br>
+                <?php include('edit-modal.php');?>
                 <h3 class="card-title">All Foods</h3>
                 <div class="col-md-12 p-4 mx-md-2"
                     style="border-radius: 25px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px">
@@ -178,6 +179,7 @@ exit;
                                 <th scope="col">Food Name</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Available</th>
                                 <th scope="col">Offer Price</th>
                                 <th scope="col">Normal Price</th>
                                 <th scope="col">Action</th>

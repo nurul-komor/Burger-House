@@ -19,6 +19,7 @@
         $foodPriceNew = $_POST['foodPriceNew'];
         $foodImage = "";
         $foodImage = $_FILES['foodImage'];
+        if(!empty($foodImage['name'])){
         $foodImageName = $user->upload_file($foodImage);
         $foodArray = [
             'food_name' => ucwords($foodName),
@@ -29,6 +30,7 @@
             'items'=> $foodItems
         ];
         echo $user->insertData('foods',$foodArray);
+        }
     }
     // get all topics 
         if($action == "getAllFood"){
