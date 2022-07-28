@@ -12,6 +12,7 @@ session_start();
         'uniqueId' => $uniqueId
       ];
       $_SESSION['allProducts'][$uniqueId]= $productArray;
+      echo json_encode($uniqueId);
     }
     // delete single item from session 
     if(isset($_GET['action'])){

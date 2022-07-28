@@ -40,24 +40,24 @@ $(document).ready(function () {
 
         $("#javaScript").append(data);
     });
-    $(document).on('click', '#add-to-cart-btn', function (e) {
-        e.preventDefault()
-        var food_name = $(this).data('name')
-        var food_image = $(this).data('image')
-        var food_price = $(this).data('price')
-        $.ajax({
-            url: "/burgerHouse/frontAjax.php",
-            method: 'post',
-            data: { action: "createSession", foodName: food_name, foodImage: food_image, foodPrice: food_price },
-            success: function (data) {
-            },
-            error: function (request, error) {
-                console.log(request);
-            }
-        })
-
-
-    })
+    /*  $(document).on('click', '#add-to-cart-btn', function (e) {
+         e.preventDefault()
+         var food_name = $(this).data('name')
+         var food_image = $(this).data('image')
+         var food_price = $(this).data('price')
+         $.ajax({
+             url: "/burgerHouse/frontAjax.php",
+             method: 'post',
+             data: { action: "createSession", foodName: food_name, foodImage: food_image, foodPrice: food_price },
+             success: function (data) {
+             },
+             error: function (request, error) {
+                 console.log(request);
+             }
+         })
+ 
+ 
+     }) */
     // full the cart 
     var cart = document.getElementsByClassName('js-cd-cart');
     cartBody = cart[0].getElementsByClassName('cd-cart__body')[0]

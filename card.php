@@ -14,7 +14,7 @@
                 <h2>Cart</h2>
                 <button style="border:none;background:none" type="submit" class="cd-remove-all">Remove All</button>
             </header>
-
+            <!-- <form> -->
             <div class="cd-cart__body">
                 <ul id="full-chart">
                     <!-- products added to the cart will be inserted here using JavaScript -->
@@ -35,6 +35,7 @@
                     </em>
                 </a>
             </footer>
+            <!-- </form> -->
         </div>
     </div> <!-- .cd-cart__content -->
 </div> <!-- cd-cart -->

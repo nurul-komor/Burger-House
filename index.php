@@ -1,8 +1,7 @@
 <?php 
     session_start();
 ?>
-<script>
-</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -134,6 +133,7 @@
                 necessitatibus. Saepe, nam!</p>
         </div>
         <div class="row lg-container-fluid" id="all-foods">
+            <div class="d-none" id="test"></div>
             <div class="col-lg-4 p-0">
                 <div class="order-section">
                     <div class="order-image one"></div>
