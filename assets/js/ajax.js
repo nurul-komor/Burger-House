@@ -66,7 +66,7 @@ $(document).ready(function () {
     function addProduct(product_name, product_image, product_price, uniqueId) {
         var test = 'selected';
         productId = productId + 1;
-        var productAdded = `<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="dashboard/uploads/${product_image}" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate">${product_name}</h3><span class="cd-cart__price">$${product_price}</span><div class="cd-cart__actions"><p type="button" class="cd-cart__delete-item"  data-id="${uniqueId}">Delete</p><div class="cd-cart__quantity"><label for="cd-product-' + productId + '">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-' + productId + '" name="quantity" ><option ${test} value="0">0</option><option value="1">1</option><option value="2" >2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>`;
+        var productAdded = `<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="dashboard/uploads/${product_image}" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate">${product_name}</h3><span class="cd-cart__price">$${product_price}</span><div class="cd-cart__actions"><p type="button" class="cd-cart__delete-item"  data-id="${uniqueId}">Delete</p><div class="cd-cart__quantity"><label for="cd-product-' + productId + '">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-' + productId + '" name="${uniqueId}" ><option ${test} value="0">0</option><option value="1">1</option><option value="2" >2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>`;
         cartList.insertAdjacentHTML('beforeend', productAdded);
     };
     $.getJSON('/burgerHouse/getsession.php', function (data) {
@@ -105,10 +105,28 @@ $(document).ready(function () {
             }
         })
     })
-    $(document).on('click', '.cd-cart__checkout', function (e) {
-        e.preventDefault()
+    $(document).on('submit', '#goToBuy', function (e) {
+        // e.preventDefault()
         var totalPrice = $("#total-price").text();
-        console.log(totalPrice)
+        $("#totalPrice").val(totalPrice);
+        // console.log(totalPrice)
+        $.ajax({
+            url: '/burgerHouse/order.php',
+            method: 'post',
+            dataType: 'json',
+            data: new FormData(this),
+            success: function (data) {
+                console.log(data);
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                )
+            },
+            error: function (request, error) {
+                console.log(request);
+            }
+        })
     })
 
 })

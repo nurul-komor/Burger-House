@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     function getFood(row, index) {
         var singleData = "";
         singleData += `<tr>
@@ -202,4 +203,42 @@ $(document).ready(function () {
         }
     })
     getAllFood()
+    function getOrder(row, index) {
+        var singleData = "";
+        singleData += `<tr>
+                        <td>${index}</td>
+                        <td>${row.username}</td>
+                        <td>${row.phone}</td>
+                        <td>${row.address}</td>
+                        <td style="max-width:120px">${row.products}</td>
+                        <td>${row.price}</td>
+                        <td>${row.status}</td>
+                        <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-topic="${row.topic}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
+                        </td>          
+                        </tr>`;
+        return singleData;
+    }
+    function getAllOrders() {
+        $.ajax({
+            url: '/burgerHouse/dashboard/ajax.php',
+            method: 'get',
+            dataType: 'json',
+            data: { action: "getAllOrder" },
+            success: function (data) {
+                console.log(data);
+                var orderList = "";
+                var id = 1;
+                $.each(data.orderLists, function (index, singleOrder) {
+                    orderList += getOrder(singleOrder, id);
+                    id++;
+                });
+                $("#orderTable tbody").html(orderList);
+            },
+            error: function (request, error) {
+                console.log(request);
+            }
+        });
+    }
+    getAllOrders()
+
 })

@@ -1,5 +1,9 @@
 <?php 
-    session_start();
-    echo "<pre>";
-    print_r($_SESSION);
+    require('dashboard/db/user.php');
+    // if($action == "getAllOrder"){
+            $allOrders = $rows = $user->selectAllData('order_list');
+            $foodList   = array('orderLists' =>  $allOrders);
+            echo json_encode($foodList);
+            exit();
+        // }
 ?>

@@ -10,10 +10,9 @@
             }
             }
             $sql = "insert into $table (".implode(',',$fields).") values (".implode(',',$placeholders).")";
-
             $result=mysqli_query($this->conn, $sql);
             if($result) {
-                echo json_encode($this->conn->insert_id);
+                return ($this->conn->insert_id);
             }
         }
         public function searchQuery($query,$table,$field){

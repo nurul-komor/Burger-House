@@ -77,6 +77,7 @@
             var food_name = $(this).data('name')
             var food_image = $(this).data('image')
             var food_price = $(this).data('price')
+            // var
             $.ajax({
                 url: "/burgerHouse/frontAjax.php",
                 method: 'post',
@@ -89,8 +90,6 @@
                     console.log(request);
                 }
             })
-
-
         })
         //update number of items 
         updateCartCount(cartIsEmpty);
@@ -122,7 +121,7 @@
 
     function addProduct(product_name, product_image, product_price, id) {
         productId = productId + 1;
-        var productAdded = `<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="dashboard/uploads/${product_image}" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">${product_name}</a></h3><span class="cd-cart__price">$${product_price}</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item" data-id="${id}">Delete</a><div class="cd-cart__quantity"><label for="cd-product-' + productId + '">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-' + productId + '" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>`;
+        var productAdded = `<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="dashboard/uploads/${product_image}" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">${product_name}</a></h3><span class="cd-cart__price">$${product_price}</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item" data-id="${id}">Delete</a><div class="cd-cart__quantity"><label for="cd-product-' + productId + '">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-' + productId + '" name="${id}"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>`;
         cartList.insertAdjacentHTML('beforeend', productAdded);
     };
 

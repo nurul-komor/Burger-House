@@ -125,6 +125,7 @@
     <!-- Burger image end-->
     <!-- order start-->
     <div class="order container-fluid">
+        <input type="hidden" id="test" name="">
         <div class="lg-container">
             <h4>Always tasty burger</h4>
             <h2>Choose & Enjoy</h2>
@@ -133,7 +134,7 @@
                 necessitatibus. Saepe, nam!</p>
         </div>
         <div class="row lg-container-fluid" id="all-foods">
-            <div class="d-none" id="test"></div>
+
             <div class="col-lg-4 p-0">
                 <div class="order-section">
                     <div class="order-image one"></div>

@@ -1,9 +1,9 @@
 <?php 
-/* session_start();
+session_start();
 if(!$_SESSION['username']){
 header('location:login');
 exit;
-} */
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +42,7 @@ exit;
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
+
                     <li><a class="dropdown-item" href="login">Logout</a></li>
                 </ul>
             </li>

@@ -1,9 +1,9 @@
 <?php
-	// session_start();
-	// if(!$_SESSION['username']){
-    //  	header('location:page-login.php');
-    //  	exit;
- 	// }
+	session_start();
+	if(!$_SESSION['username']){
+     	header('location:page-login.php');
+     	exit;
+ 	}
 ?>
 <?php
     require('./db/user.php');
@@ -29,7 +29,7 @@
             'new_price'=> $foodPriceNew,
             'items'=> $foodItems
         ];
-        echo $user->insertData('foods',$foodArray);
+        echo json_encode($user->insertData('foods',$foodArray));
         }
     }
     // get all topics 
@@ -102,4 +102,11 @@
         echo json_encode($result);
         // rmdir("../categories/".$topic_table);
     }
+    // get all orders
+    if($action == "getAllOrder"){
+            $allOrders  = $user->selectAllData('order_list');
+            $foodList   = array('orderLists' =>  $allOrders);
+            echo json_encode($foodList);
+            exit();
+        }
 ?>
