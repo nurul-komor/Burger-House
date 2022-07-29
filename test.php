@@ -1,9 +1,13 @@
 <?php 
     require('dashboard/db/user.php');
-    // if($action == "getAllOrder"){
-            $allOrders = $rows = $user->selectAllData('order_list');
-            $foodList   = array('orderLists' =>  $allOrders);
-            echo json_encode($foodList);
+ /*    session_start();
+    echo "<pre>";
+    print_r($_SESSION); */
+// if($action == "getAllCustomers"){
+            $allCustomer  = $user->selectAllData('customers');
+            $customerList   = array('customerList' =>  $allCustomer);
+            echo json_encode($customerList);
             exit();
         // }
+         
 ?>

@@ -128,6 +128,27 @@ $(document).ready(function () {
             }
         })
     })
+    $(document).on('submit', '#findTable', function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/burgerHouse/frontAjax.php',
+            method: 'post',
+            dataType: 'json',
+            data: new FormData(this),
+            success: function (data) {
+                console.log(data);
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                )
+                // $("#findTable")[0].clear
+            },
+            error: function (request, error) {
+                console.log(request);
+            }
+        })
+    })
 
 })
 

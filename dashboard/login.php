@@ -30,7 +30,7 @@
         
     }
     else{
-        session_destroy();
+        unset($_SESSION['username']);
     }
 ?>
 <!DOCTYPE html>

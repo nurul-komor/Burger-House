@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    // session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/all.min.css">
     <!-- card css -->
     <script>
-    document.getElementsByTagName("html")[0].className += " js";
+        document.getElementsByTagName("html")[0].className += " js";
     </script>
     <link rel="stylesheet" href="assets/card/css/style.css">
     <link rel="stylesheet" href="assets/card/css/style.scss">
@@ -35,6 +35,7 @@
 </head>
 
 <body>
+    <a href="login.php">link</a>
     <?php 
         include('card.php');
     ?>
@@ -322,16 +323,17 @@
             <h4>Reservation</h4>
             <h2>Book your table</h2>
             <div class="input-box">
-                <form action="" method="post">
+                <form action="frontAjax.php" method="post" id="findTable" target="_blank">
                     <div class="row">
                         <div class="col-md-6 input-container left">
-                            <input type="text" name="" id="" placeholder="Name" required="required">
-                            <input type="date" name="" id="" placeholder="Date" required="required">
-                            <input type="number" name="" id="" placeholder="People" required="required">
+                            <input type="text" name="name" id="" placeholder="Name" required="required">
+                            <input type="date" name="date" id="" placeholder="Date" required="required">
+                            <input type="number" name="people" id="" placeholder="People" required="required">
                         </div>
                         <div class="col-md-6 input-container right">
-                            <input type="email" name="" id="" placeholder="Email" required="required">
-                            <input type="time" name="" id="" placeholder="time" required="required">
+                            <input type="email" name="email" id="" placeholder="Email" required="required">
+                            <input type="time" name="time" placeholder="time" id="">
+                            <input type="hidden" name="action" value="findTable">
                             <button type="submit" class="btn">Find a table</button>
                         </div>
                     </div>

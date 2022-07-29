@@ -11,7 +11,7 @@ $(document).ready(function () {
                         <td>${row.new_price}</td>
                         <td>${row.old_price}</td>
                         <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-topic="${row.topic}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
-                        <button type="submit"  class="me-3 deleteFood btn btn-danger sweet-message" title=" Delete" data-img="${row.topic_img}" data-folder="${row.folder_name}"  data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button type="submit"  class="me-3 deleteFood btn btn-danger sweet-message" title=" Delete"   data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fa fa-trash" aria-hidden="true"></i></button>
                         </td>          
                         </tr>`;
         return singleData;
@@ -51,8 +51,12 @@ $(document).ready(function () {
                 console.log(response);
                 if (response) {
                     $("#add-food-form")[0].reset();
-                    swal("Good job!", "The food Added", "success");
-                    getAllFood()
+                    Swal.fire(
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                    )
+                    getAllFood();
                 }
             },
             error: function () {
@@ -124,49 +128,56 @@ $(document).ready(function () {
         });
     });
     // delete topic 
-    $(document).on('click', '.deleteTopic', function () {
+    $(document).on('click', '.deleteFood', function () {
         // e.preventDefault()
         var uid = $(this).data('id')
-        var folder = $(this).data('folder');
-        var img = $(this).data('img');
-        swal(
-            {
-                title: "Are you sure to delete ?",
-                text: "You will not be able to recover this imaginary Topic !!",
-                type: "warning",
-                showCancelButton: !0,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it !!",
-                closeOnConfirm: !1,
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/burgerHouse/dashboard/ajax.php',
+                    method: 'get',
+                    dataType: 'json',
+                    data: { action: "deleteFood", id: uid, tableName: "foods" },
+
+                    success: function (data) {
+                        getAllFood()
+                        // swal("Good job !!", "You Successfull Deleted !!", "success");
+                    }
+                });
+                swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
             }
-        );
-        document.querySelector(".swal2-confirm.swal2-styled").onclick = function () {
-            $.ajax({
-                url: '/burgerHouse/dashboard/ajax.php',
-                method: 'get',
-                dataType: 'json',
-                data: { action: "deleteTopic", id: uid, tableName: folder, topic_img: img },
-                beforeSend: function () {
+        })
 
-                    var Loading = webToast.loading({
-                        status: 'Loading...',
-                        message: 'Please Wait..',
-                        align: 'topcenter'
-                    });
-
-
-                    setTimeout(function () {
-
-                        Loading.remove();
-
-                    }, 2000);
-                },
-                success: function (data) {
-                    getAllFood()
-                    swal("Good job !!", "You Successfull Deleted !!", "success");
-                }
-            });
-        }
+        // }
 
     })
     // search operation 
@@ -209,8 +220,9 @@ $(document).ready(function () {
                         <td>${index}</td>
                         <td>${row.username}</td>
                         <td>${row.phone}</td>
-                        <td>${row.address}</td>
-                        <td style="max-width:120px">${row.products}</td>
+                        <td style="width:200px;text-align:justify;break:break-all">${row.address}</td>
+                        <td><textarea class="form-control" disabled>${row.products} </textarea>
+                        </td>
                         <td>${row.price}</td>
                         <td>${row.status}</td>
                         <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-topic="${row.topic}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
@@ -240,5 +252,40 @@ $(document).ready(function () {
         });
     }
     getAllOrders()
+
+    function getCustomer(row, index) {
+        // alert("ok")
+        var singleData = "";
+        singleData += `<tr>
+                        <td>${index}</td>
+                        <td>${row.username}</td>
+                        <td>${row.email}
+                        <td>${row.phone}</td>
+                        <td style="max-width:120px">${row.address}</td>
+                        </tr>`;
+        return singleData;
+    }
+    function getAllCustomer() {
+        $.ajax({
+            url: '/burgerHouse/dashboard/ajax.php',
+            method: 'get',
+            dataType: 'json',
+            data: { action: "getAllCustomers" },
+            success: function (data) {
+                console.log(data);
+                var orderList = "";
+                var id = 1;
+                $.each(data.customerList, function (index, singleOrder) {
+                    orderList += getCustomer(singleOrder, id);
+                    id++;
+                });
+                $("#customers tbody").html(orderList);
+            },
+            error: function (request, error) {
+                console.log(request);
+            }
+        });
+    }
+    getAllCustomer();
 
 })

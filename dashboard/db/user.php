@@ -10,6 +10,7 @@
             }
             }
             $sql = "insert into $table (".implode(',',$fields).") values (".implode(',',$placeholders).")";
+
             $result=mysqli_query($this->conn, $sql);
             if($result) {
                 return ($this->conn->insert_id);
@@ -148,8 +149,9 @@
                 return $result->fetch_all(MYSQLI_ASSOC);
             }
         }
-        public function deleteBook($table,$bookId,$book_img,$book_file){
-            $sql = "DELETE FROM $table WHERE id=$bookId";
+        public function deleteFood($table,$id){
+            $sql = "DELETE FROM $table WHERE id=$id";
+
             $result = mysqli_query($this->conn,$sql);
             if($result){
                 return $result;

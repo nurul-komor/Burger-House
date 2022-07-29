@@ -1,35 +1,34 @@
 <?php 
     session_start();
-    if($_REQUEST['action']=="goToBuy"){
-        if(!empty($_SESSION['allProducts'])){
-      $getData = $_POST;
-      $_SESSION['allProducts'];
-      $_SESSION['userName'] ="testName";
-      $_SESSION['address'] ="testAddress";
-      $orderText = "";
+    require('dashboard/db/user.php');
+    $getData = $_POST;
+    $user =  new User();
+        if(!$_SESSION['allProducts']){
+         header('Location: /burgerHouse');
+         die;
+        }
+        $fName = $_SESSION['fName'];
+        $address = $_SESSION['address'];
+        $totalPrice = $_POST['totalPrice'];
+        $phone = $_SESSION['phone'];
+        $status = "Placed";
+$orderText = "";
       foreach($_SESSION['allProducts'] as   $key => $value){
         $data = $value['uniqueId'];
             $orderText.=  $_SESSION['allProducts'][$data]['foodName']."(quantity:".$getData[$data]." pcs)";
       }
-       $orderText;
-    require('./dashboard/db/user.php');
-    $user =  new User();
-    $action = $_REQUEST['action'];
-        $orderList = $orderText;
-        $userName = $_SESSION['userName'];
-        $address = $_SESSION['address'];
-        $totalPrice = $_POST['totalPrice'];
-        $status = "Placed";
-        
+       $orderList = $orderText;
             $foodArray = [
-            'username'=> $userName,
+            'username'=> $fName,
+            'phone' => $phone,
             'products' => $orderList,
             'address'=> $address,
             'price'=> $totalPrice,
             'status'=> $status
         ];
-        } 
+        
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -47,10 +46,12 @@
 <body>
     <div class="container">
         <div class="">
-            <?php if(!empty($_SESSION['allProducts'])){ ?>
+            <!-- <?php  ?> -->
             <div class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Well
-                    done!<?php echo "   Your order id: #".$user->insertData('order_list',$foodArray)?></h4>
+                    done!
+                    <?php echo "   Your order id: #".$user->insertData('order_list',$foodArray)?>
+                </h4>
                 <p> Your order is placed successfully. We'll notify you about status of your order in your gmail/phone
                     that you
                     provided
@@ -66,21 +67,22 @@
                 <hr>
                 <p>Total price: $
                     <?php  echo $totalPrice?>
-                    <span class="float-end">Status: <?php echo $status?></span>
+                    <span class="float-end">Status:
+                        <?php echo $status?>
+                    </span>
                 </p>
                 <div class="text-danger fw-border">
                     &nbsp;&nbsp;To cancel your order please contact us in our phone number
                 </div>
             </div>
-            <?php }else{ 
-
-                header('Location: /burgerHouse/');
-            }
-            
-            ?>
+            <!-- <?php ?> -->
 
         </div>
     </div>
+    <?php /* if(empty($_SESSION['allProducts']) && isset($_SESSION['address'])){
+        header('/burgerHouse');
+    } */
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
@@ -88,5 +90,5 @@
 
 </html>
 <?php
-     unset($_SESSION['allProducts']);;
-} ?>
+     unset($_SESSION['allProducts']);
+// } ?>

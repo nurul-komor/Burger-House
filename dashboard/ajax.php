@@ -1,9 +1,9 @@
 <?php
-	session_start();
+/* 	session_start();
 	if(!$_SESSION['username']){
      	header('location:page-login.php');
      	exit;
- 	}
+ 	} */
 ?>
 <?php
     require('./db/user.php');
@@ -93,12 +93,10 @@
         echo json_encode($SingleBook);
         exit();
     }
-    if($action==="deleteBook"){
-        $bookId  = (!empty($_GET['id'])) ? $_GET['id']:"";
+    if($action==="deleteFood"){
+        $id  = (!empty($_GET['id'])) ? $_GET['id']:"";
         $table  = (!empty($_GET['tableName'])) ? $_GET['tableName']:"";
-        $book_img = (!empty($_GET['book_img'])) ? $_GET['book_img']:"";
-        $book_file = (!empty($_GET['book_file'])) ? $_GET['book_file']:"";
-        $result = $user->deleteBook($table,$bookId,$book_img,$book_file);
+        $result = $user->deleteFood($table,$id);
         echo json_encode($result);
         // rmdir("../categories/".$topic_table);
     }
@@ -107,6 +105,12 @@
             $allOrders  = $user->selectAllData('order_list');
             $foodList   = array('orderLists' =>  $allOrders);
             echo json_encode($foodList);
+            exit();
+        }
+    if($action == "getAllCustomers"){
+            $allCustomer  = $user->selectAllData('customers');
+            $customerList   = array('customerList' =>  $allCustomer);
+            echo json_encode($customerList);
             exit();
         }
 ?>

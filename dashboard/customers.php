@@ -126,13 +126,14 @@ exit;
                 <h3 class="text-center">Our Customers</h3>
                 <div class="col-md-11 p-4 mx-md-2"
                     style="border-radius: 25px;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px">
-                    <table class="table">
+                    <table class="table" id="customers">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Gender</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -140,6 +141,7 @@ exit;
                                 <th scope="row">1</th>
                                 <td>Mark</td>
                                 <td>Otto</td>
+                                <td>@mdo</td>
                                 <td>@mdo</td>
                             </tr>
                         </tbody>
@@ -162,12 +164,15 @@ exit;
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+    <script src="js/ajax.js"></script>
 </body>
 
 </html>

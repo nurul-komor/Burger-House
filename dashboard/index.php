@@ -15,12 +15,14 @@ exit;
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - Admin</title>
+    <link rel="" type="" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.min.js">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
 
 </head>
 
 <body class="sb-nav-fixed">
+
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index">Admin Panel</a>
@@ -144,11 +146,11 @@ exit;
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="food-price-old" class="form-label">Old Price</label>
+                                <label for="food-price-old" class="form-label">Normal Price</label>
                                 <input type="text" class="form-control" name="foodPriceOld" id="food-price-old">
                             </div>
                             <div class="mb-3">
-                                <label for="food-price-new" class="form-label">Offer Price</label>
+                                <label for="food-price-new" class="form-label">New Price</label>
                                 <input type="text" class="form-control" name="foodPriceNew" id="food-price-new">
                             </div>
                             <div class="mb-3">
@@ -224,7 +226,7 @@ exit;
     <script src="js/datatables-simple-demo.js"></script>
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.all.min.js"></script>
     <script src="./js/ajax.js"></script>
 </body>
 

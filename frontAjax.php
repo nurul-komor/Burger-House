@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require("dashboard/db/user.php");
     if($_POST['action']=="createSession"){
       $productName = $_POST['foodName'];
       $productPrice = $_POST['foodPrice'];
@@ -28,5 +29,19 @@ session_start();
          echo '1';
       }
     }
-    
+    if($_REQUEST['action']=="findTable"){
+      $name = $_POST['name'];
+      $date = $_POST['date'];
+      $people = $_POST['people'];
+      $email = $_POST['email'];
+      $time = $_POST['time'];
+      $message  = [
+        'name' => $name,
+        'date' => $date,
+        'people' => $people,
+        'email' => $email,
+        'time' => $time,
+      ];
+     $result = $user->insertData('messages',$message);
+    }
 ?>
