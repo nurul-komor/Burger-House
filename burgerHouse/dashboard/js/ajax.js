@@ -10,7 +10,7 @@ $(document).ready(function () {
                         <td>${row.items - row.sold_out}</td>
                         <td>${row.new_price}</td>
                         <td>${row.old_price}</td>
-                        <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-food="${row.food_name}" data-items="${row.items}" data-title="${row.food_title}"  data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
+                        <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-food="${row.food_name}" data-items="${row.items}" data-title="${row.food_title}" data-new-price="${row.new_price}" data-old-price="${row.old_price}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
                         <button type="submit"  class="me-3 deleteFood btn btn-danger sweet-message" title=" Delete"   data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fa fa-trash" aria-hidden="true"></i></button>
                         </td>          
                         </tr>`;
@@ -74,9 +74,18 @@ $(document).ready(function () {
         e.preventDefault()
         var uid = $(this).data('id');
         var foodName = $(this).data('food');
+        var foodTitle = $(this).data('title');
+        var foodItems = $(this).data('items');
+        var foodTitle = $(this).data('title');
+        var foodnewprice = $(this).data('new-price');
+        var foodoldprice = $(this).data('old-price');
         var modal = $('#edit-food');
         modal.find('#edit_id').val(uid);
         modal.find('#food-name').val(foodName);
+        modal.find('#food-title').val(foodTitle);
+        modal.find('#food-itmes').val(foodItems);
+        modal.find('#food-price-old').val(foodoldprice);
+        modal.find('#food-price-new').val(foodnewprice);
     })
     // edit topics 
     $(document).on('submit', '#edit-food-form', function (e) {
@@ -93,26 +102,22 @@ $(document).ready(function () {
 
             },
             success: function (response) {
-                // console.log(response);
+                console.log(response);
                 if (response) {
-                    $("#edit-topic-form")[0].reset();
-                    $("edit-topic").modal('hide');
-                    webToast.Success({
-                        status: 'Success !',
-                        message: 'Successfully Edited Topic Name',
-                        align: 'topcenter'
-                        /* Default delay time 3 second */
-                    })
-                    getAllFood()
+                    $("#add-food-form")[0].reset();
+                    Swal.fire(
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                    )
+                    getAllFood();
                 }
             },
-            error: function (request, error) {
-                // console.log("Error:" + error);
-                webToast.Danger({
-                    status: 'Sorry !',
-                    align: 'topcenter',
-                    message: "Can't edit",
-                    delay: 3000 /* 5 second will stay */
+            error: function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
                 })
             }
         });

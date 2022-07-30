@@ -27,10 +27,6 @@
                                 <label for="food-itmes" class="form-label">Items</label>
                                 <input type="text" class="form-control" name="foodItems" id="food-itmes">
                             </div>
-                            <!-- <div class="mb-3">
-                                <label for="food-itmes" class="form-label">More Items?</label>
-                                <input type="text" class="form-control" name="moreItems" id="food-itmes">
-                            </div> -->
                         </div>
                         <div class="col-6">
                             <div class="mb-3">
@@ -42,8 +38,8 @@
                                 <input type="text" class="form-control" name="foodPriceNew" id="food-price-new">
                             </div>
                             <div class="mb-3">
-                                <label for="food-price" class="form-label">Add Image</label>
-                                <input type="file" class="form-control" name="foodImage" id="food-price">
+                                <label for="food-Image" class="form-label">Add Image</label>
+                                <input type="file" class="form-control" name="foodImage" id="food-Image">
                             </div>
                             <input type="text" name="action" value="edit_food" id="">
                             <input type="text" name="" id="edit_id">
@@ -54,7 +50,7 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
 

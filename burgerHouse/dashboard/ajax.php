@@ -42,48 +42,34 @@
     // Edit topics 
     if($action==="edit_food"){
         $edit_id  = (!empty($_POST['edit_id'])) ? $_POST['edit_id']:"";
-        $tableName  = (!empty($_POST['tableName'])) ? $_POST['tableName']:"";
-        $bookName = $_POST['bookName'];
-        $description = $_POST['bookDescription'];
-        $photo = $_FILES['bookImg'];
-        $file = $_FILES['bookFile'];
-        if(empty($photo['name']) && empty($file['name'])){
-            $bookArray = [
-                'bookName' => '"'.ucwords($bookName).'"',
-                'description' => '"'.ucwords($description).'"',
-            ];
+        $foodName = $_POST['foodName'];
+        $foodTitle = $_POST['foodTitle'];
+        $foodItems = $_POST['foodItems'];
+        $foodPriceOld = $_POST['foodPriceOld'];
+        $foodPriceNew = $_POST['foodPriceNew'];
+        $foodImage = $_FILES['foodImage'];
+        if(!empty($foodImage['name'])){
+        $foodImageName = $user->upload_file($foodImage);
+        $foodArray = [
+            'food_name' => ucwords($foodName),
+            'food_title' => $foodTitle,
+            'food_image'=> $foodImageName,
+            'old_price' => $foodPriceOld,
+            'new_price'=> $foodPriceNew,
+            'items'=> $foodItems
+        ];
+    }
+        if(empty($foodImage['name'])){
+        $foodArray = [
+            'food_name' => ucwords($foodName),
+            'food_title' => $foodTitle,
+            'old_price' => $foodPriceOld,
+            'new_price'=> $foodPriceNew,
+            'items'=> $foodItems
+        ];
         }
-        else if(!empty($photo['name']) && empty($file['name'])){
-            $photoName = "";
-            $photoName = $user->upload_file($photo);
-            $bookArray = [
-                'bookName' => '"'.ucwords($bookName).'"',
-                'description' => '"'.ucwords($description).'"',
-                'book_img' => '"'.ucwords($photoName).'"'
-            ];
-        }
-        else if(empty($photo['name']) && !empty($file['name'])){
-            $fileName = "";
-            $fileName = $user->upload_file($file);
-            $bookArray = [
-                'bookName' => '"'.ucwords($bookName).'"',
-                'description' => '"'.ucwords($description).'"',
-                'book_file' => '"'.ucwords($fileName).'"'
-            ];
-        }
-        else if(!empty($photo['name']) && !empty($file['name'])){
-            $photoName =$fileName = "";
-            $photoName = $user->upload_file($photo);
-            $fileName = $user->upload_file($file);
-            $bookArray = [
-                'bookName' => '"'.ucwords($bookName).'"',
-                'description' => '"'.ucwords($description).'"',
-                'book_img' => '"'.ucwords($photoName).'"',
-                'book_file' => '"'.ucwords($fileName).'"'
-            ];
-        }
-        $updatedBook = $user->updateTopic($tableName,$bookArray,$edit_id);
-        echo json_encode($updatedBook);
+        $updatedFood = $user->updateTopic('foods',$foodArray,$edit_id);
+        echo json_encode($updatedFood);
     }
     // get single topic 
     if($action==="getBook"){
