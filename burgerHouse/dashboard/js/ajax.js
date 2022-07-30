@@ -88,9 +88,9 @@ $(document).ready(function () {
         modal.find('#food-price-new').val(foodnewprice);
     })
     // edit topics 
-    $(document).on('submit', '#edit-food-form', function (e) {
+    $('#edit-food-form').on('submit', function (e) {
         e.preventDefault();
-
+        // alert("ok")
         $.ajax({
             url: '/burgerHouse/dashboard/ajax.php',
             method: "post",
@@ -107,9 +107,10 @@ $(document).ready(function () {
                     $("#add-food-form")[0].reset();
                     Swal.fire(
                         'Good job!',
-                        'You clicked the button!',
+                        'Successfully Edited!',
                         'success'
                     )
+                    $('#edit-food').modal('hide');
                     getAllFood();
                 }
             },
@@ -216,15 +217,17 @@ $(document).ready(function () {
                         <td>${row.username}</td>
                         <td>${row.phone}</td>
                         <td style="width:200px;text-align:justify;break:break-all">${row.address}</td>
-                        <td><textarea class="form-control" disabled>${row.products} </textarea>
+                        <td><textarea class="form-control" disabled style="resize:none" cols="20" rows="5">${row.products} </textarea>
                         </td>
                         <td>${row.price}</td>
                         <td>${row.status}</td>
-                        <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-topic="${row.topic}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
-                        </td>          
+                        <td>
+                        <button type="submit" class="me-3 btn" title="update status" id="updateStatus" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="text-success fa-solid fa-circle-check"></i></button>
+                        </td>
                         </tr>`;
         return singleData;
     }
+
     function getAllOrders() {
         $.ajax({
             url: '/burgerHouse/dashboard/ajax.php',
@@ -317,5 +320,36 @@ $(document).ready(function () {
         });
     }
     getAllMessages();
+    $(document).on('click', '#updateStatus', function (e) {
+        e.preventDefault()
+        var uid = $(this).data('id');
+        // alert(uid)
+        $.ajax({
+            url: '/burgerHouse/dashboard/ajax.php',
+            method: 'get',
+            dataType: 'json',
+            data: { action: "updateOrderStatus", id: uid },
+            success: function (response) {
+                console.log(response);
+                location.reload();
+                if (response) {
+                    Swal.fire(
+                        'Good job!',
+                        'Delivered!',
+                        'success'
+                    )
+                }
+
+
+            },
+            error: function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+            }
+        })
+    })
 
 })

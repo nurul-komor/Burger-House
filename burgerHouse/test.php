@@ -9,9 +9,20 @@
             echo json_encode($customerList);
             exit(); */
         // }
-        $allMessages = $rows = $user->selectAllData('messages');
+       /*  $allMessages = $rows = $user->selectAllData('messages');
             $messageList   = array('getMessages' =>  $allMessages);
             echo json_encode($messageList);
-            exit();
+            exit(); */
+        if($_GET['action']="updateOrderStatus"){
+        $edit_id  = (!empty($_GET['id'])) ? $_GET['id']:"";
+        $statusTxt = "Delivered";
+        $status = [
+            'status' => '"'.ucwords($statusTxt).'"',
+        ];
+         $updateStatus = $user->updateTopic('order_list',$status,$edit_id);
+        if($updateStatus){
+            echo "1";
+        }
+    }
          
 ?>

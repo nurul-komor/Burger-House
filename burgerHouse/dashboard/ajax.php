@@ -51,21 +51,21 @@
         if(!empty($foodImage['name'])){
         $foodImageName = $user->upload_file($foodImage);
         $foodArray = [
-            'food_name' => ucwords($foodName),
-            'food_title' => $foodTitle,
-            'food_image'=> $foodImageName,
-            'old_price' => $foodPriceOld,
-            'new_price'=> $foodPriceNew,
-            'items'=> $foodItems
+            'food_name' => '"'.ucwords($foodName).'"',
+            'food_title' => '"'.$foodTitle.'"',
+            'food_image'=> '"'.$foodImageName.'"',
+            'old_price' => '"'.$foodPriceOld.'"',
+            'new_price'=> '"'.$foodPriceNew.'"',
+            'items'=> '"'.$foodItems.'"',
         ];
     }
         if(empty($foodImage['name'])){
         $foodArray = [
-            'food_name' => ucwords($foodName),
-            'food_title' => $foodTitle,
-            'old_price' => $foodPriceOld,
-            'new_price'=> $foodPriceNew,
-            'items'=> $foodItems
+            'food_name' => '"'.ucwords($foodName).'"',
+            'food_title' => '"'.$foodTitle.'"',
+            'old_price' => '"'.$foodPriceOld.'"',
+            'new_price'=> '"'.$foodPriceNew.'"',
+            'items'=> '"'.$foodItems.'"',
         ];
         }
         $updatedFood = $user->updateTopic('foods',$foodArray,$edit_id);
@@ -99,11 +99,23 @@
             echo json_encode($customerList);
             exit();
         }
-        // get all topics 
+        // get all getMessages 
     if($action == "getMessages"){
             $allMessages = $rows = $user->selectAllData('messages');
             $messageList   = array('getMessages' =>  $allMessages);
             echo json_encode($messageList);
             exit();
         }
+
+        if($action="updateOrderStatus"){
+        $edit_id  = (!empty($_GET['id'])) ? $_GET['id']:"";
+        $statusTxt = "Delivered";
+        $status = [
+            'status' => '"'.ucwords($statusTxt).'"',
+        ];
+        $updateStatus = $user->updateTopic('order_list',$status,$edit_id);
+        if($updateStatus){
+            echo json_encode(1);
+        }
+    }
 ?>

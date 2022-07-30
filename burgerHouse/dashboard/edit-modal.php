@@ -1,18 +1,18 @@
 <!-- Edit modal -->
+<form id="edit-food-form" action="ajax.php" method="post" enctype="multipart/form-data">
+    <div class="modal fade" id="edit-food">
+        <div class=" modal-dialog modal-xl">
+            <div class="modal-content">
 
-<div class="modal fade" id="edit-food">
-    <div class=" modal-dialog modal-xl">
-        <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
+                <!-- Modal body -->
+                <div class="modal-body">
 
-            <!-- Modal body -->
-            <div class="modal-body">
-                <form action="" id="edit-food-form" method="post">
                     <div class="row">
                         <div class="col-6">
                             <div class="mb-3">
@@ -41,19 +41,20 @@
                                 <label for="food-Image" class="form-label">Add Image</label>
                                 <input type="file" class="form-control" name="foodImage" id="food-Image">
                             </div>
-                            <input type="text" name="action" value="edit_food" id="">
-                            <input type="text" name="" id="edit_id">
+                            <input type="hidden" name="action" value="edit_food" id="">
+                            <input type="hidden" name="edit_id" id="edit_id">
                         </div>
                     </div>
-                </form>
-            </div>
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-            </div>
+                </div>
 
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
+</form>

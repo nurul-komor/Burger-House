@@ -27,7 +27,8 @@
 
     <!-- mobile menu plugin css -->
     <link rel="stylesheet" href="assets/css/grt-responsive-menu.css">
-
+    <link rel="stylesheet" type=""
+        href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.min.css">
     <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- respsive css -->
@@ -384,7 +385,7 @@
     <!-- font awesome js -->
     <script src="assets/js/all.min.js"></script>
     <!-- jquery js -->
-    <!-- <script src="assets/js/jquery-3.2.0.min.js"></script> -->
+    <script src="assets/js/jquery-3.2.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- mobile menu plugin js -->
@@ -399,6 +400,7 @@
     <!-- <script src="assets/card/js/util.js"></script> -->
     <!-- <script src="assets/card/js/main.js"></script> -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.all.min.js"></script>
     <!-- main js -->
     <script src="assets/js/main.js"></script>
     <script id="javaScript">

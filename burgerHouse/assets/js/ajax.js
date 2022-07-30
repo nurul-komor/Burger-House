@@ -68,6 +68,7 @@ $(document).ready(function () {
         productId = productId + 1;
         var productAdded = `<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="dashboard/uploads/${product_image}" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate">${product_name}</h3><span class="cd-cart__price">$${product_price}</span><div class="cd-cart__actions"><p type="button" class="cd-cart__delete-item"  data-id="${uniqueId}">Delete</p><div class="cd-cart__quantity"><label for="cd-product-' + productId + '">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-' + productId + '" name="${uniqueId}" ><option ${test} value="0">0</option><option value="1">1</option><option value="2" >2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>`;
         cartList.insertAdjacentHTML('beforeend', productAdded);
+
     };
     $.getJSON('/burgerHouse/getsession.php', function (data) {
         console.log(data)
@@ -128,29 +129,17 @@ $(document).ready(function () {
             }
         })
     })
-    $(document).on('submit', '#findTable', function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: '/burgerHouse/frontAjax.php',
-            method: 'post',
-            dataType: 'json',
-            data: new FormData(this),
-            success: function (data) {
-                console.log(data);
-                Swal.fire(
-                    'Good job!',
-                    'You clicked the button!',
-                    'success'
-                )
-                // $("#findTable")[0].clear
-            },
-            error: function (request, error) {
-                console.log(request);
-            }
-        })
-    })
+    /*     $(document).on('submit', '#findTable', function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/burgerHouse/frontAjax.php',
+                method: 'post',
+                dataType: 'json',
+                data: new FormData(this),
+    
+            })
+        }) */
     $("#findTable").on('submit', function (e) {
-        alert("ok")
         e.preventDefault();
         $.ajax({
             url: '/burgerHouse/frontAjax.php',
@@ -167,11 +156,19 @@ $(document).ready(function () {
                 console.log(response);
                 if (response) {
                     $("#findTable")[0].reset();
+                    Swal.fire(
+                        'Good job!',
+                        "We'll notify your in your email account!",
+                        'success'
+                    )
                 }
             },
             error: function () {
-                alert("wrong")
-
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
             }
         });
     });
