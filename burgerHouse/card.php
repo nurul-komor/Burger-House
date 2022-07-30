@@ -2,7 +2,6 @@
     <input type="hidden" name="totalPrice" id="totalPrice" value="">
     <div class="cd-cart cd-cart--empty js-cd-cart">
         <a href="" class="cd-cart__trigger text-replace">
-
             <ul class="cd-cart__count">
                 <!-- cart items count -->
                 <li>0</li>
@@ -15,6 +14,8 @@
                 <header class="cd-cart__header">
                     <h2>Cart</h2>
                     <button style="border:none;background:none" type="button" class="cd-remove-all">Remove All</button>
+                    <a class="cd-cart__undo" style="display:none">
+                    </a>
                 </header>
                 <!-- <form> -->
                 <div class="cd-cart__body">

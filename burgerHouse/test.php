@@ -2,7 +2,7 @@
     require('dashboard/db/user.php');
     session_start();
     echo "<pre>";
-    // print_r($_SESSION);
+    print_r($_SESSION);
     // if($action == "getAllCustomers"){
         /* $allCustomer  = $user->selectAllData('customers');
             $customerList   = array('customerList' =>  $allCustomer);
@@ -13,7 +13,7 @@
             $messageList   = array('getMessages' =>  $allMessages);
             echo json_encode($messageList);
             exit(); */
-        if($_GET['action']="updateOrderStatus"){
+   /*      if($_GET['action']="updateOrderStatus"){
         $edit_id  = (!empty($_GET['id'])) ? $_GET['id']:"";
         $statusTxt = "Delivered";
         $status = [
@@ -23,6 +23,6 @@
         if($updateStatus){
             echo "1";
         }
-    }
+    } */
          
 ?>

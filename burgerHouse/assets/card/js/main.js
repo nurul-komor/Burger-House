@@ -45,53 +45,57 @@
         });
 
         //reinsert product deleted from the cart
-        // cartUndo.addEventListener('click', function (event) {
-        if (event.target.tagName.toLowerCase() == 'a') {
-            // event.preventDefault();
-            if (cartTimeoutId) clearInterval(cartTimeoutId);
-            // reinsert deleted product
-            var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted')[0];
-            Util.addClass(deletedProduct, 'cd-cart__product--undo');
-            deletedProduct.addEventListener('animationend', function cb() {
-                deletedProduct.removeEventListener('animationend', cb);
-                Util.removeClass(deletedProduct, 'cd-cart__product--deleted cd-cart__product--undo');
-                deletedProduct.removeAttribute('style');
-                quickUpdateCart();
-            });
-            Util.removeClass(cartUndo, 'cd-cart__undo--visible');
-        }
-        // });
+        cartUndo.addEventListener('click', function (event) {
+            if (event.target.tagName.toLowerCase() == 'a') {
+                // event.preventDefault();
+                if (cartTimeoutId) clearInterval(cartTimeoutId);
+                // reinsert deleted product
+                var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted')[0];
+                Util.addClass(deletedProduct, 'cd-cart__product--undo');
+                deletedProduct.addEventListener('animationend', function cb() {
+                    deletedProduct.removeEventListener('animationend', cb);
+                    Util.removeClass(deletedProduct, 'cd-cart__product--deleted cd-cart__product--undo');
+                    deletedProduct.removeAttribute('style');
+                    quickUpdateCart();
+                });
+                Util.removeClass(cartUndo, 'cd-cart__undo--visible');
+            }
+        });
     };
 
     function addToCart(event) {
         // event.preventDefault();
+        // alert("ok")
         if (animatingQuantity) return;
         var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
         //update cart product list
-        var product_name = $(this).data('name');
-        var product_price = $(this).data('price');
-        var product_image = $(this).data('image');
-
-        $(document).on('click', '#add-to-cart-btn', function (e) {
-            // console.log("ok");
-            e.preventDefault()
-            var food_name = $(this).data('name')
-            var food_image = $(this).data('image')
-            var food_price = $(this).data('price')
-            // var
-            $.ajax({
-                url: "/burgerHouse/frontAjax.php",
-                method: 'post',
-                data: { action: "createSession", foodName: food_name, foodImage: food_image, foodPrice: food_price },
-                success: function (data) {
-                    console.log(data);
-                    addProduct(product_name, product_image, product_price, data);
-                },
-                error: function (request, error) {
-                    console.log(request);
-                }
-            })
+        /*         var product_name = $(this).data('name');
+                var product_price = $(this).data('price');
+                var product_image = $(this).data('image'); */
+        var fullCart = "";
+        // $(document).on('click', '#add-to-cart-btn', function (e) {
+        // console.log("ok");
+        event.preventDefault()
+        var food_name = $(this).data('name')
+        var food_image = $(this).data('image')
+        var food_price = $(this).data('price')
+        // var
+        $.ajax({
+            url: "/burgerHouse/frontAjax.php",
+            method: 'post',
+            data: { action: "createSession", foodName: food_name, foodImage: food_image, foodPrice: food_price },
+            success: function (data) {
+                console.log(data);
+                addProduct(food_name, food_image, food_price, data) + "<br>";
+                // 
+                console.log(fullCart)
+            },
+            error: function (request, error) {
+                console.log(request);
+            }
         })
+
+        // })
         //update number of items 
         updateCartCount(cartIsEmpty);
         //update total price

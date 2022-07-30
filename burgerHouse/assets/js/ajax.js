@@ -174,4 +174,5 @@ $(document).ready(function () {
     });
 
 })
+// addProduct();
 
