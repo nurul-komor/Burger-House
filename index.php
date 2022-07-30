@@ -1,5 +1,5 @@
 <?php 
-    // session_start();
+     session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/all.min.css">
     <!-- card css -->
     <script>
-        document.getElementsByTagName("html")[0].className += " js";
+    document.getElementsByTagName("html")[0].className += " js";
     </script>
     <link rel="stylesheet" href="assets/card/css/style.css">
     <link rel="stylesheet" href="assets/card/css/style.scss">
@@ -50,7 +50,7 @@
     <!-- preloader End-->
     <!-- nav bar start -->
     <!-- nav bar start -->
-    <div class="navigation-bar " style="display:none">
+    <div class="navigation-bar ">
         <div class="logo  pl-lg-5 pl-sm-4">
             <a href=""><img src="assets/images/logo.png" alt="logo">
                 <h3>Burger House</h3>
@@ -323,7 +323,7 @@
             <h4>Reservation</h4>
             <h2>Book your table</h2>
             <div class="input-box">
-                <form action="frontAjax.php" method="post" id="findTable" target="_blank">
+                <form method="post" id="findTable">
                     <div class="row">
                         <div class="col-md-6 input-container left">
                             <input type="text" name="name" id="" placeholder="Name" required="required">
@@ -332,7 +332,7 @@
                         </div>
                         <div class="col-md-6 input-container right">
                             <input type="email" name="email" id="" placeholder="Email" required="required">
-                            <input type="time" name="time" placeholder="time" id="">
+                            <input type="time" name="time" placeholder="time" id="" required="required">
                             <input type="hidden" name="action" value="findTable">
                             <button type="submit" class="btn">Find a table</button>
                         </div>
@@ -384,7 +384,9 @@
     <!-- font awesome js -->
     <script src="assets/js/all.min.js"></script>
     <!-- jquery js -->
-    <script src="assets/js/jquery-3.2.0.min.js"></script>
+    <!-- <script src="assets/js/jquery-3.2.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- mobile menu plugin js -->
     <script src="assets/plugin/grt-responsive-menu.js"></script>
     <!-- owlcarousel js  -->

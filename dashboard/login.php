@@ -65,12 +65,14 @@
                                     <form method="post">
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputEmail" type="text"
-                                                placeholder="name@example.com" name="username" />
+                                                placeholder="name@example.com" name="username"
+                                                value="<?php if(isset($_POST['btn'])){ echo $_POST['username'];}?>" />
                                             <label for="inputEmail">User Name</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputPassword" type="password"
-                                                placeholder="Password" name="password" />
+                                                placeholder="Password" name="password"
+                                                value="<?php if(isset($_POST['btn'])){ echo $_POST['password'];}?>" />
                                             <label for="inputPassword">Password</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">

@@ -3,8 +3,8 @@
     require('dashboard/db/user.php');
     $getData = $_POST;
     $user =  new User();
-        if(!$_SESSION['allProducts']){
-         header('Location: /burgerHouse');
+        if(!$_SESSION['fName']){
+         header('Location: /burgerHouse/login.php');
          die;
         }
         $fName = $_SESSION['fName'];
@@ -13,9 +13,15 @@
         $phone = $_SESSION['phone'];
         $status = "Placed";
 $orderText = "";
+if(!$_SESSION['allProducts']){
+         header('Location: /burgerHouse/');
+         die;
+        }
       foreach($_SESSION['allProducts'] as   $key => $value){
         $data = $value['uniqueId'];
+        if($getData[$data]!=0){
             $orderText.=  $_SESSION['allProducts'][$data]['foodName']."(quantity:".$getData[$data]." pcs)";
+        }
       }
        $orderList = $orderText;
             $foodArray = [

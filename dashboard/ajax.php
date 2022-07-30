@@ -40,7 +40,7 @@
             exit();
         }
     // Edit topics 
-    if($action==="editBooks"){
+    if($action==="edit_food"){
         $edit_id  = (!empty($_POST['edit_id'])) ? $_POST['edit_id']:"";
         $tableName  = (!empty($_POST['tableName'])) ? $_POST['tableName']:"";
         $bookName = $_POST['bookName'];
@@ -111,6 +111,13 @@
             $allCustomer  = $user->selectAllData('customers');
             $customerList   = array('customerList' =>  $allCustomer);
             echo json_encode($customerList);
+            exit();
+        }
+        // get all topics 
+    if($action == "getMessages"){
+            $allMessages = $rows = $user->selectAllData('messages');
+            $messageList   = array('getMessages' =>  $allMessages);
+            echo json_encode($messageList);
             exit();
         }
 ?>

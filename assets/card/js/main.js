@@ -45,22 +45,22 @@
         });
 
         //reinsert product deleted from the cart
-        cartUndo.addEventListener('click', function (event) {
-            if (event.target.tagName.toLowerCase() == 'a') {
-                event.preventDefault();
-                if (cartTimeoutId) clearInterval(cartTimeoutId);
-                // reinsert deleted product
-                var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted')[0];
-                Util.addClass(deletedProduct, 'cd-cart__product--undo');
-                deletedProduct.addEventListener('animationend', function cb() {
-                    deletedProduct.removeEventListener('animationend', cb);
-                    Util.removeClass(deletedProduct, 'cd-cart__product--deleted cd-cart__product--undo');
-                    deletedProduct.removeAttribute('style');
-                    quickUpdateCart();
-                });
-                Util.removeClass(cartUndo, 'cd-cart__undo--visible');
-            }
-        });
+        // cartUndo.addEventListener('click', function (event) {
+        if (event.target.tagName.toLowerCase() == 'a') {
+            // event.preventDefault();
+            if (cartTimeoutId) clearInterval(cartTimeoutId);
+            // reinsert deleted product
+            var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted')[0];
+            Util.addClass(deletedProduct, 'cd-cart__product--undo');
+            deletedProduct.addEventListener('animationend', function cb() {
+                deletedProduct.removeEventListener('animationend', cb);
+                Util.removeClass(deletedProduct, 'cd-cart__product--deleted cd-cart__product--undo');
+                deletedProduct.removeAttribute('style');
+                quickUpdateCart();
+            });
+            Util.removeClass(cartUndo, 'cd-cart__undo--visible');
+        }
+        // });
     };
 
     function addToCart(event) {

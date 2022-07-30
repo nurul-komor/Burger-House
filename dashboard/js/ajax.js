@@ -10,7 +10,7 @@ $(document).ready(function () {
                         <td>${row.items - row.sold_out}</td>
                         <td>${row.new_price}</td>
                         <td>${row.old_price}</td>
-                        <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-topic="${row.topic}" data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
+                        <td><button type="submit" class="me-3 editFood btn btn-primary" title=" Edit" data-bs-toggle="modal" data-bs-target="#edit-food" data-food="${row.food_name}" data-items="${row.items}" data-title="${row.food_title}"  data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fas fa-edit" aria-hidden="true"></i></button>
                         <button type="submit"  class="me-3 deleteFood btn btn-danger sweet-message" title=" Delete"   data-id="${row.id}"><i style="font-size: 20px;color: white;" class="fa fa-trash" aria-hidden="true"></i></button>
                         </td>          
                         </tr>`;
@@ -73,11 +73,13 @@ $(document).ready(function () {
     $(document).on('click', '.editFood', function (e) {
         e.preventDefault()
         var uid = $(this).data('id');
+        var foodName = $(this).data('food');
         var modal = $('#edit-food');
         modal.find('#edit_id').val(uid);
+        modal.find('#food-name').val(foodName);
     })
     // edit topics 
-    $(document).on('submit', '#edit-topic-form', function (e) {
+    $(document).on('submit', '#edit-food-form', function (e) {
         e.preventDefault();
 
         $.ajax({
@@ -89,18 +91,6 @@ $(document).ready(function () {
             contentType: false,
             beforeSend: function () {
 
-                var Loading = webToast.loading({
-                    status: 'Loading...',
-                    message: 'Please Wait..',
-                    align: 'topcenter'
-                });
-
-
-                setTimeout(function () {
-
-                    Loading.remove();
-
-                }, 2000);
             },
             success: function (response) {
                 // console.log(response);
@@ -287,5 +277,40 @@ $(document).ready(function () {
         });
     }
     getAllCustomer();
+
+    // get cusomters messages 
+    function getMessage(row, index) {
+        var singleData = "";
+        singleData += `<tr>
+                        <td>${index}</td>
+                        <td>${row.name}</td>
+                        <td >${row.email}</td>
+                        <td>${row.date}</td>
+                        <td>${row.people}</td>
+                        <td>${row.time}</td>
+                        </td>          
+                        </tr>`;
+        return singleData;
+    }
+    function getAllMessages() {
+        // alert("ok")
+        $.ajax({
+            url: '/burgerHouse/dashboard/ajax.php',
+            method: 'get',
+            dataType: 'json',
+            data: { action: "getMessages" },
+            success: function (data) {
+                console.log(data);
+                var messageList = "";
+                var id = 1;
+                $.each(data.getMessages, function (index, singleMessage) {
+                    messageList += getMessage(singleMessage, id);
+                    id++;
+                });
+                $("#messageList tbody").html(messageList);
+            }
+        });
+    }
+    getAllMessages();
 
 })

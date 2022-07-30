@@ -8,7 +8,7 @@
             'phone' => $_POST['phone'],
             'address' => $_POST['address'],
         ];
-        if(!preg_match('/^[0-9]{10}+$/', $customer['phone'])) {
+        /* if(!preg_match('/^[0-9]{10}+$/', $customer['phone'])) {
             ?>
 <div class="
                  alert alert-danger d-flex align-items-center" role="alert">
@@ -22,23 +22,27 @@
     </div>
 </div>
 <?php
-        }
-    else{
+       
+    else{ */
+        
         $result = $user->insertData('customers',$customer);
          $_SESSION['fName'] = $customer['username'];
       $_SESSION['phone'] = $customer['phone'];
       $_SESSION['address'] = $customer['address'];
     if($result){
-    }
-   
         ?>
-
 <div class="alert alert-success" role="alert">
     successfully signup
 </div>
-<?php 
+<?php
     }
-     }?>
+   
+        } ?>
+
+
+<?php 
+    // }
+    //  }?>
 <!doctype html>
 <html lang="en">
 

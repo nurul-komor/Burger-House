@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require("dashboard/db/user.php");
+$action = $_REQUEST['action'];
     if($_POST['action']=="createSession"){
       $productName = $_POST['foodName'];
       $productPrice = $_POST['foodPrice'];
@@ -29,7 +30,7 @@ require("dashboard/db/user.php");
          echo '1';
       }
     }
-    if($_REQUEST['action']=="findTable"){
+    if($action=="findTable"){
       $name = $_POST['name'];
       $date = $_POST['date'];
       $people = $_POST['people'];
@@ -43,5 +44,8 @@ require("dashboard/db/user.php");
         'time' => $time,
       ];
      $result = $user->insertData('messages',$message);
+    if($result){
+      echo json_encode($result);
+    }
     }
 ?>

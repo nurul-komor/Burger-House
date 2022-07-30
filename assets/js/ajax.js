@@ -149,6 +149,32 @@ $(document).ready(function () {
             }
         })
     })
+    $("#findTable").on('submit', function (e) {
+        alert("ok")
+        e.preventDefault();
+        $.ajax({
+            url: '/burgerHouse/frontAjax.php',
+            method: "post",
+            dataType: "json",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+
+
+            },
+            success: function (response) {
+                console.log(response);
+                if (response) {
+                    $("#findTable")[0].reset();
+                }
+            },
+            error: function () {
+                alert("wrong")
+
+            }
+        });
+    });
 
 })
 
