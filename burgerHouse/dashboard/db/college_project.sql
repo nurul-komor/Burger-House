@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2022 at 08:58 AM
+-- Generation Time: Aug 01, 2022 at 05:42 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,7 +39,33 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `password`, `email`) VALUES
-(1, 'admin', 'root1234', '0');
+(2, 'admin', 'root1234', 'customer@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `address` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `username`, `email`, `phone`, `address`) VALUES
+(36, 'Test Name', 'sadmanhossain96@gmail.com', '01860081978', 'lorem ipsum'),
+(37, 'customer', 'cusomter@gmail.com', '01860081845', 'Lorem Ipsum'),
+(39, 'customer', 'cusomter@gmail.com', '01860081845', '97 Great Russell Street,London,United Kingdom'),
+(40, 'Test Name', 'nurulkomor52@gmail.com', '01860081978', 'Khulshi,Chittagong'),
+(41, 'customer', 'cusomter@gmail.com', '01860081845', 'Abdul Hamid Road, Foy\'s Lake, Chittagong'),
+(42, 'Test Name', 'test@gmail.com', '01860081845', 'Test');
 
 -- --------------------------------------------------------
 
@@ -55,19 +81,107 @@ CREATE TABLE `foods` (
   `old_price` varchar(11) DEFAULT NULL,
   `new_price` varchar(100) NOT NULL,
   `items` varchar(11) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `avilable_items` varchar(100) DEFAULT NULL,
-  `sold_out` varchar(100) DEFAULT NULL
+  `sold_out` varchar(100) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `foods`
 --
 
-INSERT INTO `foods` (`id`, `food_name`, `food_title`, `food_image`, `old_price`, `new_price`, `items`, `status`, `avilable_items`, `sold_out`) VALUES
-(24, 'Burger 1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e225fea3385_1658988030.png', '160', '130', '50', 1, NULL, NULL),
-(25, 'Burger 2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e226221e6c7_1658988066.png', '50', '45', '150', 1, NULL, NULL),
-(26, 'Burger 3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e22636239bf_1658988086.png', '60', '50', '70', 1, NULL, '5');
+INSERT INTO `foods` (`id`, `food_name`, `food_title`, `food_image`, `old_price`, `new_price`, `items`, `sold_out`, `status`) VALUES
+(28, 'Burger 1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3be4af0a18_1659092554.png', '60', '40', '70', '', 1),
+(29, 'Burger 2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3be677af97_1659092583.png', '40', '30', '60', '', 1),
+(30, 'Burger 3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3be780f778_1659092600.png', '60', '30', '80', '', 1),
+(31, 'Burger 4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3be8706479_1659092615.png', '160', '130', '50', '', 1),
+(32, 'Burger 5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3beaa73ebd_1659092650.png', '30', '25', '70', '', 1),
+(34, 'Burger 70', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3c23e313f5_1659093566.png', '', '36', '65', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `people` varchar(10) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `time` time(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `name`, `date`, `people`, `email`, `time`) VALUES
+(1, 'XPLORE ASIA', '2022-07-12', '3', 'nurulkomor52@gmail.com', '00:00:00.000000'),
+(3, 'XPLORE ASIA', '2022-07-08', '33', 'nurulkomor52@gmail.com', '00:00:00.000000'),
+(4, 'XPLORE ASIA', '2022-07-08', '33', 'nurulkomor53@gmail.com', '00:00:00.000000'),
+(5, 'XPLORE ASIA', '2022-06-30', '5', 'sadmanhossain96@gmail.com', '00:00:00.000000'),
+(24, 'XPLORE ASIA', '2022-07-07', '4', 'nurulkomor52@gmail.com', '00:00:00.000000'),
+(27, 'XPLORE ASIA', '2022-07-07', '2', 'sadmanhossain96@gmail.com', '21:16:00.000000'),
+(28, 'XPLORE ASIA', '2022-07-08', '3', 'sadmanhossain96@gmail.com', '12:15:00.000000'),
+(29, 'XPLORE ASIA', '2022-07-06', '1', 'nurulkomor52@gmail.com', '23:20:00.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_list`
+--
+
+CREATE TABLE `order_list` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `products` text NOT NULL,
+  `address` text NOT NULL,
+  `price` varchar(100) NOT NULL,
+  `status` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_list`
+--
+
+INSERT INTO `order_list` (`id`, `username`, `phone`, `products`, `address`, `price`, `status`) VALUES
+(75, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '285.00', 'Placed'),
+(76, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '155.00', 'Placed'),
+(77, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '155.00', 'Placed'),
+(78, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '155.00', 'Placed'),
+(80, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '155.00', 'Placed'),
+(81, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '155.00', 'Placed'),
+(83, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '155.00', 'Placed'),
+(85, 'customer', 'Cusomter Name', 'Burger 4(quantity:1 pcs)Burger 5(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '155.00', 'Placed'),
+(86, 'customer', 'Cusomter Name', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '', 'Placed'),
+(87, 'customer', 'Cusomter Name', 'Burger 6(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchange', '190.00', 'Delivered'),
+(88, '', '', 'Burger 5(quantity:1 pcs)Burger 5(quantity:1 pcs)', '', '50.00', 'Delivered'),
+(89, 'Test Name', '01860081978', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'lorem ipsum', '155.00', 'Placed'),
+(90, 'Test Name', '01860081978', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'lorem ipsum', '155.00', 'Delivered'),
+(91, 'Test Name', '01860081978', 'Burger 4(quantity:1 pcs)Burger 5(quantity:1 pcs)', 'lorem ipsum', '155.00', 'Delivered'),
+(92, 'Test Name', '01860081978', 'Burger 2(quantity:1 pcs)', 'lorem ipsum', '30.00', 'Placed'),
+(93, '', '', 'Burger 4(quantity:1 pcs)Burger 5(quantity:1 pcs)', '', '155.00', 'Placed'),
+(94, '', '', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', '', '155.00', 'Placed'),
+(95, '', '', 'Burger 4(quantity:1 pcs)Burger 1(quantity:1 pcs)', '', '195.00', 'Placed'),
+(96, '', '', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', '', '155.00', 'Placed'),
+(97, 'customer', '01860081845', 'Burger 4(quantity:0 pcs)Burger 5(quantity:0 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum', '155.00', 'Placed'),
+(98, 'customer', '01860081845', '', 'Lorem Ipsum', '155.00', 'Placed'),
+(99, 'customer', '01860081978', 'Burger 6(quantity:0 pcs)Burger 5(quantity:0 pcs)Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Lorem Ipsum', '155.00', 'Delivered'),
+(100, 'customer', '01860081845', 'Burger 5(quantity:0 pcs)Burger 4(quantity:0 pcs)Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', '97 Great Russell Street,London,United Kingdom', '155.00', 'Placed'),
+(101, 'customer', '01860081845', 'Burger 4(quantity:4 pcs)', '97 Great Russell Street,London,United Kingdom', '670.00', 'Delivered'),
+(102, 'customer', '01860081845', 'Burger 5(quantity:1 pcs)Burger 4(quantity:4 pcs)', '97 Great Russell Street,London,United Kingdom', '670.00', 'Placed'),
+(103, 'customer', '01860081845', 'Burger 5(quantity:6 pcs)Burger 4(quantity:4 pcs)', '97 Great Russell Street,London,United Kingdom', '795.00', 'Delivered'),
+(104, 'customer', '01860081845', 'Burger 5(quantity:1 pcs)Burger 4(quantity:4 pcs)', '97 Great Russell Street,London,United Kingdom', '670.00', 'Delivered'),
+(105, 'customer', '01860081845', 'Burger 4(quantity:5 pcs)', '97 Great Russell Street,London,United Kingdom', '900.00', 'Delivered'),
+(106, 'customer', '01860081845', 'Burger 4(quantity:1 pcs)Burger 5(quantity:1 pcs)', '97 Great Russell Street,London,United Kingdom', '155.00', 'Delivered'),
+(107, 'customer', '01860081845', 'Burger 4(quantity:4 pcs)Burger 5(quantity:5 pcs)', '97 Great Russell Street,London,United Kingdom', '1165.00', 'Delivered'),
+(108, 'customer', '01860081845', 'Burger 5(quantity:5 pcs)Burger 4(quantity:4 pcs)', '97 Great Russell Street,London,United Kingdom', '670.00', 'Delivered'),
+(109, 'customer', '01860081845', 'Burger 6(quantity:6 pcs)Burger 4(quantity:4 pcs)', '97 Great Russell Street,London,United Kingdom', '765.00', 'Delivered'),
+(110, 'Test Name', '01860081978', 'Burger 4(quantity:1 pcs)', 'Khulshi,Chittagong', '130.00', 'Delivered'),
+(111, 'customer', '01860081845', 'Burger 5(quantity:4 pcs)Burger 6(quantity:4 pcs)Burger 5(quantity:8 pcs)Burger 4(quantity:4 pcs)', 'Abdul Hamid Road, Foy\'s Lake, Chittagong', '964.00', 'Delivered'),
+(112, 'Test Name', '01860081845', 'Burger 6(quantity:4 pcs)Burger 6(quantity:7 pcs)Burger 5(quantity:9 pcs)', 'Test', '621.00', 'Delivered');
 
 --
 -- Indexes for dumped tables
@@ -80,9 +194,27 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `foods`
 --
 ALTER TABLE `foods`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_list`
+--
+ALTER TABLE `order_list`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -93,13 +225,31 @@ ALTER TABLE `foods`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `order_list`
+--
+ALTER TABLE `order_list`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
