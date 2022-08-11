@@ -1,7 +1,7 @@
 # Burget-House-with-php
 <b>Step: 1: download folder from https://github.com/nurul-komor/Burget-House-with-php.git. or click https://github.com/nurul-komor/Burget-House-with-php/archive/refs/heads/main.zip<br>
 <br>
-<b>Step: 2: put "burgerHouse" folder in xampp/htdocs/<br>
+<b>Step: 2: put the "burgerHouse" folder from Burger-House-with-php to xampp/htdocs/<br>
 <br>
 <b>Step: 3: Now open Browser and open https://localhost/phpmyadmin/<br>
 <br>
