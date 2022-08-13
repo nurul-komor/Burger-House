@@ -69,7 +69,9 @@
         ];
         }
         $updatedFood = $user->updateTopic('foods',$foodArray,$edit_id);
-        echo json_encode($updatedFood);
+        if($updatedFood){
+            echo json_encode(1);
+        }
     }
     // get single topic 
     if($action==="getBook"){

@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="assets/css/grt-responsive-menu.css">
     <link rel="stylesheet" type=""
         href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.min.css">
+    <script src="assets/js/jquery-3.2.0.min.js"></script>
     <!-- style css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- respsive css -->
@@ -36,7 +37,7 @@
 </head>
 
 <body>
-    <a href="login.php">link</a>
+    <a href="login.php" style="display:none">link</a>
     <?php 
         include('card.php');
     ?>
@@ -72,6 +73,30 @@
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#story">Our story</a></li>
                 <li><a href="#contact">Contact us</a></li>
+                <?php if(!isset($_SESSION['fName'])){?>
+                <li><a href="customer/login">Login/Signup</a></li>
+                <?php }?>
+                <?php if(isset($_SESSION['fName'])){?>
+                <script>
+                function logout() {
+                    $.ajax({
+                        url: "/burgerHouse/logout.php",
+                        method: "post",
+                        dataType: "string",
+                        data: {
+                            action: "logout"
+                        },
+                        success: function() {
+
+                        },
+                        error: function(request) {
+                            // console.log(request);
+                        }
+                    })
+                }
+                </script>
+                <li><a href="customer/login?action=logout" onclick="logout()" false>Logout</a></li>
+                <?php }?>
             </ul>
         </nav>
     </div>

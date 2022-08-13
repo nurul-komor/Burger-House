@@ -101,9 +101,9 @@ $(document).ready(function () {
             beforeSend: function () {
 
             },
-            success: function (response) {
-                console.log(response);
-                if (response) {
+            success: function (data) {
+                console.log(data);
+                if (data) {
                     $("#add-food-form")[0].reset();
                     Swal.fire(
                         'Good job!',
@@ -114,7 +114,9 @@ $(document).ready(function () {
                     getAllFood();
                 }
             },
-            error: function () {
+            error: function (request, error) {
+                console.log(request);
+                console.log(error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

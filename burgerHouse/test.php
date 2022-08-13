@@ -1,9 +1,8 @@
 <?php 
-// only for testing
-//     require('dashboard/db/user.php');
-//     session_start();
-//     echo "<pre>";
-//     print_r($_SESSION);
+    require('dashboard/db/user.php');
+    session_start();
+    echo "<pre>";
+    print_r($_SESSION);
     // if($action == "getAllCustomers"){
         /* $allCustomer  = $user->selectAllData('customers');
             $customerList   = array('customerList' =>  $allCustomer);

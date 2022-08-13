@@ -157,6 +157,16 @@
                 return $result;
             }
         }
+        public function customerLogin($email,$pass){
+            $sql = "select * from customers where email like '{$email}' and password like '{$pass}'";
+            $result = mysqli_query($this->conn,$sql);
+            if($result->num_rows>0){
+                $result = $result->fetch_assoc();
+                if($result){
+                    return  $result;
+                }
+            }
+        }
     };
     $user = new User();
 ?>

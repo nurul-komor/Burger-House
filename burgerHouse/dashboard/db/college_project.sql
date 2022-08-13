@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2022 at 05:42 PM
+-- Generation Time: Aug 13, 2022 at 02:13 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -50,22 +50,28 @@ INSERT INTO `admins` (`id`, `username`, `password`, `email`) VALUES
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(50) NOT NULL,
-  `address` text DEFAULT NULL
+  `address` text DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `username`, `email`, `phone`, `address`) VALUES
-(36, 'Test Name', 'sadmanhossain96@gmail.com', '01860081978', 'lorem ipsum'),
-(37, 'customer', 'cusomter@gmail.com', '01860081845', 'Lorem Ipsum'),
-(39, 'customer', 'cusomter@gmail.com', '01860081845', '97 Great Russell Street,London,United Kingdom'),
-(40, 'Test Name', 'nurulkomor52@gmail.com', '01860081978', 'Khulshi,Chittagong'),
-(41, 'customer', 'cusomter@gmail.com', '01860081845', 'Abdul Hamid Road, Foy\'s Lake, Chittagong'),
-(42, 'Test Name', 'test@gmail.com', '01860081845', 'Test');
+INSERT INTO `customers` (`id`, `username`, `password`, `email`, `phone`, `address`, `status`) VALUES
+(36, 'Test Name', '', 'sadmanhossain96@gmail.com', '01860081978', 'lorem ipsum', 1),
+(37, 'customer', '', 'cusomter@gmail.com', '01860081845', 'Lorem Ipsum', 1),
+(39, 'customer', '', 'cusomter@gmail.com', '01860081845', '97 Great Russell Street,London,United Kingdom', 1),
+(40, 'Test Name', '', 'nurulkomor52@gmail.com', '01860081978', 'Khulshi,Chittagong', 1),
+(41, 'customer', '', 'cusomter@gmail.com', '01860081845', 'Abdul Hamid Road, Foy\'s Lake, Chittagong', 1),
+(42, 'Test Name', '', 'test@gmail.com', '01860081845', 'Test', 1),
+(43, 'Mark', '1adbb3178591fd5bb0c248518f39bf6d', 'customer@help.com', '0154878515', 'Test address', 1),
+(44, 'Mark', '1adbb3178591fd5bb0c248518f39bf6d', 'customer@help.com', '0154878515', 'Test address', 1),
+(45, '32423', '40bdf41c62637e3b882e6cbcc466b65f', 'customer@help.com', '42424fsdfas', '25235', 1),
+(46, 'customer', '664593e579231d8b14f77c9efc6761cd', 'customer@help.com', '0154878515', '43242', 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +101,7 @@ INSERT INTO `foods` (`id`, `food_name`, `food_title`, `food_image`, `old_price`,
 (30, 'Burger 3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3be780f778_1659092600.png', '60', '30', '80', '', 1),
 (31, 'Burger 4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3be8706479_1659092615.png', '160', '130', '50', '', 1),
 (32, 'Burger 5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3beaa73ebd_1659092650.png', '30', '25', '70', '', 1),
-(34, 'Burger 70', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3c23e313f5_1659093566.png', '', '36', '65', '', 1);
+(34, 'Burger 70', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ', '62e3c23e313f5_1659093566.png', '40', '36', '65', '', 1);
 
 -- --------------------------------------------------------
 
@@ -181,7 +187,8 @@ INSERT INTO `order_list` (`id`, `username`, `phone`, `products`, `address`, `pri
 (109, 'customer', '01860081845', 'Burger 6(quantity:6 pcs)Burger 4(quantity:4 pcs)', '97 Great Russell Street,London,United Kingdom', '765.00', 'Delivered'),
 (110, 'Test Name', '01860081978', 'Burger 4(quantity:1 pcs)', 'Khulshi,Chittagong', '130.00', 'Delivered'),
 (111, 'customer', '01860081845', 'Burger 5(quantity:4 pcs)Burger 6(quantity:4 pcs)Burger 5(quantity:8 pcs)Burger 4(quantity:4 pcs)', 'Abdul Hamid Road, Foy\'s Lake, Chittagong', '964.00', 'Delivered'),
-(112, 'Test Name', '01860081845', 'Burger 6(quantity:4 pcs)Burger 6(quantity:7 pcs)Burger 5(quantity:9 pcs)', 'Test', '621.00', 'Delivered');
+(112, 'Test Name', '01860081845', 'Burger 6(quantity:4 pcs)Burger 6(quantity:7 pcs)Burger 5(quantity:9 pcs)', 'Test', '621.00', 'Delivered'),
+(113, 'Mark', '0154878515', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Test address', '155.00', 'Delivered');
 
 --
 -- Indexes for dumped tables
@@ -231,7 +238,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `foods`
@@ -249,7 +256,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,14 +1,15 @@
 <?php 
     session_start();
-    require('dashboard/db/user.php');
+    require('../dashboard/db/user.php');
      if(isset($_POST['btn'])){
         $customer = [
             'username' =>  $_POST['fName'],
+            'password' =>  md5($_POST['password']),
             'email' => $_POST['email'],
             'phone' => $_POST['phone'],
             'address' => $_POST['address'],
         ];
-        /* if(!preg_match('/^[0-9]{10}+$/', $customer['phone'])) {
+        if(!preg_match('/^[0-9]{10}+$/', $customer['phone'])) {
             ?>
 <div class="
                  alert alert-danger d-flex align-items-center" role="alert">
@@ -21,28 +22,30 @@
         &nbsp;&nbsp;&nbsp;Invalid phone number
     </div>
 </div>
+
 <?php
+    }
+
        
-    else{ */
+    else{
         
         $result = $user->insertData('customers',$customer);
          $_SESSION['fName'] = $customer['username'];
-      $_SESSION['phone'] = $customer['phone'];
-      $_SESSION['address'] = $customer['address'];
+         $_SESSION['phone'] = $customer['phone'];
+        $_SESSION['address'] = $customer['address'];
     if($result){
         ?>
 <div class="alert alert-success" role="alert">
     successfully signup
 </div>
-<?php
-    }
-   
-        } ?>
+
+
 
 
 <?php 
-    // }
-    //  }?>
+    }
+    }
+     }?>
 <!doctype html>
 <html lang="en">
 
@@ -76,6 +79,11 @@
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Create password</label>
+                <input type="password" class="form-control" id="password" aria-describedby="emailHelp" name="password"
+                    required>
             </div>
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
