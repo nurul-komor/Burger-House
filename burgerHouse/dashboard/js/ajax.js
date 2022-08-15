@@ -103,7 +103,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log(data);
-                if (data) {
+                if (response) {
                     $("#add-food-form")[0].reset();
                     Swal.fire(
                         'Good job!',
