@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2022 at 08:47 AM
+-- Generation Time: Aug 17, 2022 at 05:34 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -182,7 +182,9 @@ INSERT INTO `order_list` (`id`, `username`, `phone`, `products`, `address`, `pri
 (110, 'Test Name', '01860081978', 'Burger 4(quantity:1 pcs)', 'Khulshi,Chittagong', '130.00', 'Delivered'),
 (111, 'customer', '01860081845', 'Burger 5(quantity:4 pcs)Burger 6(quantity:4 pcs)Burger 5(quantity:8 pcs)Burger 4(quantity:4 pcs)', 'Abdul Hamid Road, Foy\'s Lake, Chittagong', '964.00', 'Delivered'),
 (112, 'Test Name', '01860081845', 'Burger 6(quantity:4 pcs)Burger 6(quantity:7 pcs)Burger 5(quantity:9 pcs)', 'Test', '621.00', 'Delivered'),
-(113, 'Mark', '0154878515', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Test address', '155.00', 'Delivered');
+(113, 'Mark', '0154878515', 'Burger 5(quantity:1 pcs)Burger 4(quantity:1 pcs)', 'Test address', '155.00', 'Delivered'),
+(114, 'Mark', '0154878515', 'Burger 6(quantity:9 pcs)', 'Test address', '324.00', 'Placed'),
+(115, 'Mark', '0154878515', 'Burger 4(quantity:1 pcs)', 'Test address', '260.00', 'Delivered');
 
 --
 -- Indexes for dumped tables
@@ -250,7 +252,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
