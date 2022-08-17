@@ -1,4 +1,4 @@
-# Burget-House main
+# Burget-House main2
 <b>Step: 1: download folder from https://github.com/nurul-komor/Burget-House.github.io.git or click https://github.com/nurul-komor/Burget-House/archive/refs/heads/main.zip<br>
 <br>
 <b>Step: 2: put the "burgerHouse" folder from Burger-House-with-php/ to xampp/htdocs/<br>
