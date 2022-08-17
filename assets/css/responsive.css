@@ -1,0 +1,238 @@
+    @media (min-width: 768px) {
+        /* ===== Scrollbar CSS ===== */
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #ffc045 #ffe5b8;
+        }
+        /* Chrome, Edge, and Safari */
+        *::-webkit-scrollbar {
+            width: 12px;
+        }
+        *::-webkit-scrollbar-track {
+            background: #ffe5b8;
+        }
+        *::-webkit-scrollbar-thumb {
+            background-color: #ffc045;
+            border-radius: 18px;
+            border: 0px none #ffcb70;
+        }
+    }
+    
+    @media (max-width:768px) {
+        p {
+            margin: 0;
+        }
+    }
+    /* navigation end*/
+    
+    @media (max-width: 768px) {
+        .navigation-bar .logo {
+            padding-left: 24px;
+        }
+        .navigation-bar .nav-right img {
+            /* margin-top: 10px; */
+            margin-right: 8px;
+        }
+        .navigation-bar .nav-right .nav-phone {
+            /* margin-right: 30px; */
+            padding-left: 0;
+            width: 150px;
+            position: fixed;
+            /* right: 100%; */
+            border: 1px solid var(--text-color);
+            min-width: 300px;
+            top: 80px;
+            padding-left: 8px;
+            opacity: 0;
+            left: -100%;
+            visibility: hidden;
+            transition: all 0.3s;
+            border-radius: 25px;
+            padding: 8px 16px;
+            background: url(../images/bg-1.png) no-repeat;
+            background-size: 110%;
+            background-position: center;
+        }
+        .navigation-bar .nav-right .nav-phone.show {
+            opacity: 1;
+            visibility: visible;
+            animation-name: navphone;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+        @keyframes navphone {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 50px;
+            }
+            100% {
+                left: 25px;
+            }
+        }
+        .grt-mobile-button {
+            position: absolute;
+            top: 0px;
+            right: 30px;
+            background-color: rgba(240, 248, 255, 0);
+        }
+        .delivery-phone {
+            display: block;
+        }
+    }
+    
+    @media (max-width:599px) {}
+    
+    @media (max-width:590px) {}
+    
+    @media (min-width:768px) {
+        .navigation-bar.sticky {
+            padding: 20px 0;
+            background: #fff;
+            transition: all 0.5s;
+        }
+    }
+    /* navigation end*/
+    /* header start*/
+    
+    @media (min-width: 768px) {
+        ul.grt-menu li a:hover {
+            box-shadow: inset 150px 0 0 0 #ffffff00;
+        }
+    }
+    
+    @media (max-width: 1085px) {
+        .header .header-right {
+            background: none;
+        }
+        .header .header-right img {
+            display: block;
+        }
+    }
+    
+    @media (max-width: 983px) {
+        .header {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+    
+    @media (max-width:778px) {
+        .header {
+            padding-top: 110px;
+        }
+        .header .header-left h1 {
+            font-size: 80px;
+        }
+        .header .header-left h1::after {
+            font-size: 80px;
+        }
+        .header .header-left h2 {
+            font-size: 50px;
+        }
+        .header .header-left h2::after {
+            font-size: 50px;
+        }
+    }
+    
+    @media (max-width:768px) {
+        .navigation-bar {
+            background: #fff;
+        }
+        .header .header-left {
+            padding: 60px 24px;
+        }
+        .header-right {
+            padding: 0;
+        }
+    }
+    
+    @media (max-width:533px) {
+        .header .header-left h1 {
+            font-size: 60px;
+        }
+        .header .header-left h1::after {
+            font-size: 60px;
+        }
+        .header .header-left h2 {
+            font-size: 40px;
+        }
+        .header .header-left h2::after {
+            font-size: 40px;
+        }
+    }
+    /* header end */
+    /* reservation start  */
+    
+    @media (min-width: 1200px) {
+        .reservation .container {
+            padding: 0 75px;
+        }
+    }
+    
+    @media (max-width: 1200px) and (min-width:774px) {
+        .reservation .container {
+            padding: 0;
+        }
+    }
+    
+    @media (max-width:1323px) {
+        .reservation .input-box .left input {
+            width: 355px;
+            /* margin: 5px auto; */
+            margin-left: auto;
+        }
+        .reservation .input-box .right input,
+        .reservation button {
+            width: 355px;
+            /* margin: 5px auto; */
+            margin-right: auto;
+        }
+    }
+    
+    @media (max-width:778px) {
+        .reservation .input-box input,
+        .reservation button {
+            display: block;
+            text-align: center;
+            margin: 5px 0;
+        }
+    }
+    
+    @media (max-width:1432px) {
+        .svg-left-one {
+            left: 3%;
+        }
+    }
+    
+    @media (max-width:1230px) {
+        .svg-left-one {
+            left: 0;
+        }
+    }
+    
+    @media (max-width:1092px) and (min-width:750px) {
+        .svg-left-one {
+            display: none;
+        }
+    }
+    /* reservation end  */
+    /* footer start */
+    
+    @media (max-width:532px) {
+        .footer .footer-left .logo img {
+            height: 100px;
+        }
+        .footer .footer-left h4 {
+            font-size: 50px;
+            line-height: 100px;
+        }
+    }
+    /* footer end */

@@ -1,0 +1,716 @@
+    /*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:    Landing Page Of Burger House
+Version:    1.0
+Creation date: 11/03/2022
+Last change:    13/03/2002 [fixed Float bug, vf]
+Author Name: Nurul Komor
+Primary use:   Landing Page
+-------------------------------------------------------------------*/
+    
+    @font-face {
+        font-family: "BebasNeue";
+        src: url("../fonts/BebasNeue\ Bold.otf");
+    }
+    
+    @font-face {
+        font-family: "BebasNeue-regular";
+        src: url("../fonts//BebasNeue\ Regular.otf");
+    }
+    
+    @font-face {
+        font-family: "Montserrate-bold";
+        src: url("../fonts/Montserrat-Bold.ttf");
+    }
+    
+    @font-face {
+        font-family: "Montserrate-medium";
+        src: url("../fonts/Montserrat-Medium.ttf");
+    }
+    
+    @font-face {
+        font-family: "alpha";
+        src: url("../fonts/AlfaSlabOne-Regular.ttf");
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+     :root {
+        --text-color: #3d2514;
+        --red: #bf2222;
+        --primary-color: #ffc045;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    ::-moz-selection { /* Code for Firefox */
+        color: var(--text-color);
+        background: var(--primary-color);
+    }
+
+    ::selection {
+        color: var(--text-color);
+        background: #ffb624;
+    }
+    body {
+        font-family: Montserrate-medium;
+        font-size: 14px;
+        overflow-x: hidden;
+    }
+    
+    body.stop {
+        overflow: hidden;
+    }
+    
+    p {
+        color: var(--text-color);
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        padding: 0;
+    }
+    
+    a:hover {
+        text-decoration: none;
+    }
+    
+    .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 9999;
+        background-color: #ffffff;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("../images/preloader.gif");
+    }
+    /* .animate__fadeOut {
+        --animate-duration: 2s;
+    }
+     */
+    
+    .delivery-phone {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #ffc045;
+        z-index: 3;
+        border-radius: 50%;
+        display: none;
+        /* height: 50px;
+        width: 50px; */
+    }
+    
+    .delivery-phone svg {
+        padding: 13px 15px;
+        padding-top: 14px;
+        color: var(--text-color);
+    }
+    
+    .delivery-phone svg:nth-child(2) {
+        font-size: 20px;
+    }
+    
+    .delivery-phone .remove-phone.hide {
+        visibility: hidden;
+        display: none;
+        transition: all 0.3s;
+    }
+    
+    .delivery-phone .add-phone {
+        visibility: hidden;
+        display: none;
+    }
+    
+    .delivery-phone .add-phone.show {
+        visibility: visible;
+        display: block;
+    }
+    /* nav start */
+    
+    .navigation-bar {
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 10;
+        transition: all 0.5s;
+    }
+    
+    .navigation-bar .logo a {
+        display: flex;
+        font-family: BebasNeue;
+        color: var(--text-color);
+        align-items: center;
+        height: 100%;
+    }
+    
+    .navigation-bar .logo h3 {
+        font-size: 26px;
+        margin-top: 5px;
+    }
+    
+    .navigation-bar .logo img {
+        height: 25px;
+        margin-right: 5px;
+    }
+    
+    .navigation-bar .nav-right {
+        position: relative;
+        right: 0;
+        padding-right: 40px;
+    }
+    
+    .navigation-bar .nav-right .nav-phone {
+        display: flex;
+        color: var(--text-color);
+        padding-left: 65px;
+    }
+    
+    .navigation-bar .nav-right .nav-phone img {
+        margin-right: 5px;
+    }
+    
+    .navigation-bar .nav-right .nav-phone p {
+        font-family: 'Montserrate-bold';
+        font-weight: 600;
+    }
+    
+    .navigation-bar .nav-right img {
+        height: 20px;
+    }
+    
+    .navigation-bar .nav-right .menu-links {
+        font-family: BebasNeue;
+    }
+    
+    .navigation-bar .nav-right .menu-links a {
+        letter-spacing: 1.5px;
+        padding: 5px 10px;
+        margin: 0 10px;
+        color: var(--text-color);
+    }
+    
+    .navigation-bar .nav-right .menu-links a:hover,
+    .nav-right .menu-links a.active {
+        color: #9b6948;
+    }
+    
+    .line1,
+    .line2,
+    .line3 {
+        background-color: #3d2514;
+    }
+    /* nav end */
+    /* header start */
+    
+    .header {
+        /* max-height: 100vh; */
+        background: #fabd63;
+        background: url(../images/bg-1.png) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        /* padding: 0;
+        margin: 0; */
+        /* width: 100%; */
+    }
+    
+    .header p {
+        margin: 0;
+    }
+    
+    .header .header-left {
+        padding: 200px 0;
+        padding-left: 50px;
+    }
+    
+    .header .header-left h6 {
+        font-family: BebasNeue-regular;
+        letter-spacing: 1px;
+        padding: 8px;
+        color: var(--text-color);
+        border: 1px dashed;
+        display: inline-block;
+    }
+    
+    .header .header-left h1,
+    .header .header-left h2 {
+        font-family: alpha;
+        color: var(--text-color);
+        font-size: 114px;
+        line-height: 0.5;
+        margin-top: 45px;
+        position: relative;
+        z-index: 0;
+        /* display: none; */
+    }
+    
+    .header .header-left h1::after {
+        font-family: alpha;
+        font-size: 114px;
+        position: absolute;
+        content: "Burger";
+        /* background: #000; */
+        color: rgb(212, 212, 212);
+        left: 2px;
+        top: 2px;
+        /* height: 100%; */
+        /* width: 100%; */
+        z-index: -1;
+    }
+    
+    .header .header-left h2 {
+        font-size: 56px;
+        line-height: 1;
+    }
+    
+    .header .header-left h2::after {
+        font-family: alpha;
+        font-size: 56px;
+        position: absolute;
+        content: "Week";
+        /* background: #000; */
+        color: rgb(212, 212, 212);
+        left: 2px;
+        top: 2px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+    
+    .header .header-right {
+        background: rgb(255, 173, 66);
+        background: url(../images/burger-bg-1.png);
+        background-size: cover;
+        background-position: center center;
+        width: 659.500px;
+        height: 780.188;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .header .header-right img {
+        display: none;
+        /* width: 100%; */
+    }
+    /* header end */
+    /* burger-image start */
+    
+    .burger-image {
+        padding: 56px 0;
+        overflow: hidden;
+    }
+    
+    .burger-image .burger-image-left {
+        height: 420px;
+        width: 100%;
+        /* border: 1px solid; */
+        border-radius: 8px;
+        background: rgb(255, 153, 0);
+        background: url(../images/burder-image-1.png) no-repeat;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .burger-image .burger-image-texts {
+        font-family: BebasNeue;
+        position: absolute;
+        color: #fff;
+        top: 20px;
+        left: 30px;
+    }
+    
+    .burger-image .burder-image-right {
+        height: 195px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    
+    .burger-image .burder-image-right.top {
+        margin-bottom: 30px;
+        background: rgb(78, 78, 78);
+        background: url(../images/burder-image-2.png) no-repeat;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .burger-image .burder-image-right.bottom {
+        background: rgb(78, 78, 78);
+        background: url(../images/burder-image-3.png) no-repeat;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+    }
+    /* burger-image end */
+    /* order start */
+    
+    .order {
+        padding: 20px;
+        text-align: center;
+        ;
+        overflow: hidden;
+    }
+    
+    .order h4 {
+        font-family: BebasNeue;
+        font-size: 25px;
+        padding: 15px 22px;
+        padding-top: 18px;
+        background-color: #ffc045;
+        display: inline-block;
+        color: var(--text-color);
+        margin-bottom: 10px;
+    }
+    
+    .order h2 {
+        font-family: alpha;
+        padding: 8px;
+        font-size: 50px;
+        color: var(--text-color);
+    }
+    
+    .order-section {
+        margin-top: 40px;
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+        height: 604px;
+        padding: 0 20px;
+    }
+    
+    .order-section h3 {
+        font-family: BebasNeue;
+        color: var(--text-color);
+        padding: 8px;
+    }
+    
+    .order-section p {
+        margin: 0;
+    }
+    
+    .order-section button {
+        font-family: alpha;
+        padding: 16px 30px;
+        font-size: 16px;
+        color: #fff;
+        background: var(--red);
+        margin-top: 1rem;
+        border-radius: 0;
+        border: 1px solid transparent;
+    }
+    
+    .order-section button:hover {
+        color: #fff;
+        background: rgb(255, 68, 68);
+        border: 1px solid rgb(255, 68, 68);
+    }
+    .add-chart-num{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+    }
+    .add-chart-num input{
+        text-align: center;
+    }
+    .add-chart-num input{
+        max-width: 80px;
+        margin: 0 16px;
+    }
+    .order-section button.add-to-chart.sign{
+        padding: 4px 11.5px;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+    }
+    
+    .order-section .order-image {
+        height: 359px;
+        width: 100%;
+        background: #9b6948
+    }
+    
+    .order-section .order-image.one {
+        background: url(../images/order-burger-1.png);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .order-section .order-image.two {
+        background: url(../images/order-burger-2.png);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .order-section .order-image.three {
+        background: url(../images/order-burger-3.png);
+        background-size: cover;
+        background-position: center;
+    }
+    /* order end */
+    /* event start */
+    
+    .event {
+        padding: 50px 0;
+        padding-top: 20px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        padding: 26px;
+    }
+    
+    .event-section {
+        /* width: 95%; */
+        height: 100%;
+        margin: 0 auto;
+        border-radius: 3px;
+        position: relative;
+    }
+    
+    .event-image {
+        height: 443px;
+        background: #000;
+        background: url(../images//slider-bg-1.png);
+    }
+    
+    .event-image.item-one {
+        height: 443px;
+        background: #000;
+        background: url(../images/slider-bg-1.png);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .event-section h4 {
+        color: var(--text-color);
+        font-family: BebasNeue;
+    }
+    
+    .event-section h2 {
+        color: var(--text-color);
+        font-family: alpha;
+        margin-bottom: 15px;
+    }
+    
+    .owl-dots {
+        display: inline-block;
+        width: 100px;
+        position: absolute;
+        bottom: 9px;
+    }
+    
+    .owl-dot {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        background-color: #dcdcdc;
+        border-radius: 50%;
+    }
+    
+    .owl-dot.active {
+        background: #ffc045;
+    }
+    /* event end */
+    /* reservation start */
+    
+    .reservation {
+        padding: 60px 0;
+        position: relative;
+        text-align: center;
+        /* border: 1px solid green; */
+        overflow: hidden;
+    }
+    
+    .svg-left-one {
+        /* bottle */
+        position: absolute;
+        left: 7%;
+        top: 244px;
+        width: 56px;
+    }
+    
+    .svg-left-one img {
+        width: 60px;
+    }
+    
+    .svg-left-two {
+        /* burger  */
+        position: absolute;
+        left: -5px;
+        top: 18px;
+        height: 200px;
+        width: 200px;
+        z-index: -2;
+    }
+    
+    .svg-left-two img {
+        width: 200px;
+    }
+    
+    .reservation .svg-right {
+        position: absolute;
+        right: -101px;
+        bottom: 0;
+        width: 250px;
+        z-index: -2;
+        transform: rotate(90deg);
+    }
+    
+    .reservation h2,
+    .reservation h4 {
+        padding: 5px 0;
+        /* display: inline-block; */
+    }
+    
+    .reservation h2 {
+        font-family: alpha;
+        font-size: 50px;
+        color: var(--text-color);
+    }
+    
+    .reservation h4 {
+        font-family: bebasNeue;
+        font-size: 30px;
+        color: var(--text-color);
+    }
+    
+    .reservation .input-box {
+        padding: 60px 0 10px 0;
+    }
+    
+    .reservation .input-box input,
+    .reservation button {
+        display: block;
+        margin: 0 auto;
+        width: 479px;
+        height: 64px;
+        padding: 20px;
+        font-size: 20.3px;
+        font-family: bebasNeue;
+        margin: 12px 0;
+    }
+    
+    input[type="date"],
+    input[type="time"] {
+        color: rgb(107, 107, 107);
+    }
+    
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* .reservation .input-box input::placeholder {
+        color: green;
+    } */
+    
+    .reservation button {
+        background-color: #bf2222;
+        color: #fff;
+        font-family: alpha;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .reservation button:hover {
+        color: #fff;
+    }
+    /* reservation end */
+    /* footer start */
+    
+    .footer {
+        /* height: 522px; */
+        background: rgb(116, 71, 71);
+        background-image: url(../images/footer.png);
+        background-size: cover;
+        background-position: center center;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .footer .footer-left {
+        padding: 24px;
+        padding-top: 50px;
+        min-height: 446px
+    }
+    
+    .footer .footer-left .logo {
+        display: flex;
+    }
+    
+    .footer .footer-left .logo img {
+        height: 150px;
+    }
+    
+    .footer .footer-left h4 {
+        font-size: 80px;
+        font-family: bebasNeue;
+        color: #fff;
+        line-height: 150px;
+    }
+    
+    .footer .footer-left p {
+        color: #fff;
+        line-height: 1.7;
+        text-align: justify;
+    }
+    
+    .footer .footer-right {
+        padding: 24px;
+        /* min-height: 446px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .footer .footer-right p {
+        color: #fff;
+        font-size: 20px;
+        font-family: BebasNeue-regular;
+    }
+    
+    .footer .footer-right p svg {
+        height: 20px;
+        /* margin-right: 5px; */
+        width: 50px
+    }
+    
+    .copyright-section p {
+        color: #fff;
+    }
+    
+    .footer-social-media svg {
+        background: #fff;
+        color: rgb(49, 49, 49);
+        padding: 5px;
+        margin: 0 3px;
+        border-radius: 50%;
+        width: 16px;
+        border: 1px solid;
+        transition: all 0.3s;
+    }
+    
+    .footer-social-media svg:hover {
+        color: #fff;
+        background-color: rgba(49, 49, 49, 0);
+    }
+    /* footer end */
