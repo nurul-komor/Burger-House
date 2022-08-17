@@ -1,5 +1,5 @@
-
-# Burget-House 
+# Burget-House main2
+>>>>>>> 580767cb6e734a6b57bcfd4a02e6554ae9332643
 <b>Step: 1: download folder from https://github.com/nurul-komor/Burget-House.github.io.git or click https://github.com/nurul-komor/Burget-House/archive/refs/heads/main.zip<br>
 # Burget-House 
 <b>Step: 1: download folder from https://github.com/nurul-komor/Burget-House.git. or click https://github.com/nurul-komor/Burget-House/archive/refs/heads/main.zip<br>
