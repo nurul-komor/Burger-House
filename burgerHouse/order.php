@@ -4,7 +4,7 @@
     $getData = $_POST;
     $user =  new User();
         if(!$_SESSION['fName']){
-         header('Location: /burgerHouse/login.php');
+         header('Location: /burgerHouse/customer/login.php');
          die;
         }
         $fName = $_SESSION['fName'];

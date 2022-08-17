@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <a href="login.php" style="display:none">link</a>
+    <!-- <a href="login.php" style="display:none">link</a> -->
     <?php 
         include('card.php');
     ?>
@@ -54,7 +54,7 @@
     <!-- nav bar start -->
     <div class="navigation-bar ">
         <div class="logo  pl-lg-5 pl-sm-4">
-            <a href=""><img src="assets/images/logo.png" alt="logo">
+            <a href="/burgerHouse"><img src="assets/images/logo.png" alt="logo">
                 <h3>Burger House</h3>
             </a>
         </div>
